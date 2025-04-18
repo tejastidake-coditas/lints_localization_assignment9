@@ -1,16 +1,31 @@
 # lints_localization_assignment9
 
-A new Flutter project.
+# Assignment Week 9
+This document outlines the requirements for developing a food delivery and cart application in Flutter. The application will integrate listing and details APIs, allow users to perform searches, and manage a cart locally within the session.
 
-## Getting Started
+Features & Requirements
+1. Home Screen (food Listing Page)
+   Fetch and display data from the listing API:
+   Display products in a grid view
+   Implement local search functionality
+   Handle image load failures gracefully
+2. Food Details Screen
+   Display complete details upon clicking an item
+   Include an "Order Now" button
+   Once ordered show one success dialog.
+3. Profile Screen
+   Allow navigation to the profile screen by clicking on profile from the bottom nav bar.
+   Handle textfield data and updates in bloc.
+   Additional Notes
+   The app should have a clean and user-friendly UI following the provided Figma design
+   Ensure optimal performance with API calls and local state management
+   Ensure using Navigation 3.0, Dependency injection(in a correct way) and clean coding architecture.
+   You can use API’s of previous assignment.
+   Implement lints in the application.
+   Implement localization with hindi and english supported locale.
+   Also, fix AutoRoute usage and other points as discussed in assignment evaluation.
 
-This project is a starting point for a Flutter application.
+Figma Link - https://www.figma.com/design/TSiTU3MAps6M1mZFqSUyyh/Food-App-Design-UI-Template--Community-?node-id=0-1&p=f&t=C29gaW65yrjQFCI5-0
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
