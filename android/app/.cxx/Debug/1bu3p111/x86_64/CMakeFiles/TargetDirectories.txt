@@ -1,0 +1,2 @@
+/Users/coditas/Development/Projects/lints_localization/android/app/.cxx/Debug/1bu3p111/x86_64/CMakeFiles/edit_cache.dir
+/Users/coditas/Development/Projects/lints_localization/android/app/.cxx/Debug/1bu3p111/x86_64/CMakeFiles/rebuild_cache.dir
