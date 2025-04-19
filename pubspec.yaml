@@ -38,6 +38,7 @@ dependencies:
   flutter_bloc:
   dio:
   equatable:
+  dartz:
   get_it:
   flutter_svg: ^2.0.7
 

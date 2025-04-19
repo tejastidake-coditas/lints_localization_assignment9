@@ -1,7 +1,7 @@
-abstract class ProductDetailsEvent {}
+sealed class ProductDetailsEvent {}
 
-class FetchProductDetails extends ProductDetailsEvent {
+class GetProductDetailsEvent extends ProductDetailsEvent {
   final int id;
 
-  FetchProductDetails(this.id);
+  GetProductDetailsEvent(this.id);
 }

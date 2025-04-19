@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
-import 'package:lints_localization_assignment9/core/di/service_locator.dart';
+import 'package:lints_localization_assignment9/core/di/injector.dart';
 import 'package:lints_localization_assignment9/features/common/presentation/widgets/rating_widget.dart';
 import 'package:lints_localization_assignment9/features/product_details/presentation/bloc/product_details_bloc.dart';
 import 'package:auto_route/auto_route.dart';
@@ -25,7 +25,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
     return BlocProvider(
       create: (_) =>
-          sl<ProductDetailsBloc>()..add(FetchProductDetails(productId)),
+          injectorInstance<ProductDetailsBloc>()..add(GetProductDetailsEvent(productId)),
       child: Scaffold(
         backgroundColor: ColorConstants.backgroundColor,
         body: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(

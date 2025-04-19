@@ -1,31 +1,30 @@
 import 'package:equatable/equatable.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/entities/product_listing_entity.dart';
+import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
 
-abstract class ProductListingState extends Equatable {
-  const ProductListingState();
-
+sealed class ProductListingState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class ProductInitial extends ProductListingState {}
+class ProductListingInitial extends ProductListingState {}
 
-class ProductLoading extends ProductListingState {}
+class ProductListingLoading extends ProductListingState {}
 
-class ProductLoaded extends ProductListingState {
+class ProductListingLoaded extends ProductListingState {
   final List<ProductListingEntity> products;
+
   final String selectedCategory;
 
-  const ProductLoaded(this.products, this.selectedCategory);
+  ProductListingLoaded(this.products, this.selectedCategory);
 
   @override
   List<Object?> get props => [products, selectedCategory];
 }
 
-class ProductError extends ProductListingState {
+class ProductListingError extends ProductListingState {
   final String message;
 
-  const ProductError(this.message);
+  ProductListingError(this.message);
 
   @override
   List<Object?> get props => [message];

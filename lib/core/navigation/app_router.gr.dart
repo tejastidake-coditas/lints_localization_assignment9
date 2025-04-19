@@ -11,11 +11,12 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
-import 'package:lints_localization_assignment9/features/common/presentation/widgets/main_shell.dart' as _i4;
 import 'package:lints_localization_assignment9/features/add_product/presentation/screens/add_product_screen.dart'
     as _i1;
 import 'package:lints_localization_assignment9/features/chat/presentation/screens/chat_screen.dart'
     as _i2;
+import 'package:lints_localization_assignment9/features/common/presentation/widgets/main_shell.dart'
+    as _i4;
 import 'package:lints_localization_assignment9/features/common/presentation/widgets/product_search_bar.dart'
     as _i7;
 import 'package:lints_localization_assignment9/features/favorite/presentation/screens/favorite_screen.dart'
@@ -173,10 +174,15 @@ class ProductSearchBarRoute
   ProductSearchBarRoute({
     _i11.Key? key,
     required _i11.ValueChanged<String> onChanged,
+    required _i11.TextEditingController controller,
     List<_i10.PageRouteInfo>? children,
   }) : super(
          ProductSearchBarRoute.name,
-         args: ProductSearchBarRouteArgs(key: key, onChanged: onChanged),
+         args: ProductSearchBarRouteArgs(
+           key: key,
+           onChanged: onChanged,
+           controller: controller,
+         ),
          initialChildren: children,
        );
 
@@ -186,21 +192,31 @@ class ProductSearchBarRoute
     name,
     builder: (data) {
       final args = data.argsAs<ProductSearchBarRouteArgs>();
-      return _i7.ProductSearchBar(key: args.key, onChanged: args.onChanged);
+      return _i7.ProductSearchBar(
+        key: args.key,
+        onChanged: args.onChanged,
+        controller: args.controller,
+      );
     },
   );
 }
 
 class ProductSearchBarRouteArgs {
-  const ProductSearchBarRouteArgs({this.key, required this.onChanged});
+  const ProductSearchBarRouteArgs({
+    this.key,
+    required this.onChanged,
+    required this.controller,
+  });
 
   final _i11.Key? key;
 
   final _i11.ValueChanged<String> onChanged;
 
+  final _i11.TextEditingController controller;
+
   @override
   String toString() {
-    return 'ProductSearchBarRouteArgs{key: $key, onChanged: $onChanged}';
+    return 'ProductSearchBarRouteArgs{key: $key, onChanged: $onChanged, controller: $controller}';
   }
 }
 

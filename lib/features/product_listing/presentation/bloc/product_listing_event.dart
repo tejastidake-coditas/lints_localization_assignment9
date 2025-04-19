@@ -1,26 +1,21 @@
-import 'package:equatable/equatable.dart';
+sealed class ProductListingEvent {}
 
-abstract class ProductListingEvent extends Equatable { // use sealed
-  const ProductListingEvent();
-
-  @override
-  List<Object> get props => [];
-}
-
-class LoadProducts extends ProductListingEvent {}
+class GetAllProductsEvent extends ProductListingEvent {}
 
 class FilterByCategory extends ProductListingEvent {
   final String category;
 
-  const FilterByCategory(this.category);
+  FilterByCategory(this.category);
 
-  @override
   List<Object> get props => [category];
 }
 
-
-class SearchProduct extends ProductListingEvent {
+class SearchProductsEvent extends ProductListingEvent {
   final String query;
 
-  const SearchProduct(this.query);
+  SearchProductsEvent(this.query);
+
+  @override
+  List<Object?> get props => [query];
 }
+
