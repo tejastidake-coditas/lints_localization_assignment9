@@ -15,7 +15,6 @@ class SearchProductsEvent extends ProductListingEvent {
 
   SearchProductsEvent(this.query);
 
-  @override
   List<Object?> get props => [query];
 }
 

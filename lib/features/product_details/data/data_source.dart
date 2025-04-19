@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:lints_localization_assignment9/core/constants/failure_constants.dart';
+import 'package:lints_localization_assignment9/core/enums/method_enum.dart';
 import 'package:lints_localization_assignment9/core/networking/network_constants.dart';
 import 'package:lints_localization_assignment9/core/networking/network_service.dart';
 import 'package:lints_localization_assignment9/features/product_details/data/model.dart';
 
-abstract interface class ProductDetailsDataSource {
+abstract class ProductDetailsDataSource {
   Future<Either<Failure, ProductDetailsModel>> getProductById(int id);
 }
 
@@ -17,18 +17,18 @@ class ProductDetailsDataSourceImplementation
 
   @override
   Future<Either<Failure, ProductDetailsModel>> getProductById(int id) async {
-    try {
-      final response = await networkService.get(
-        '${NetworkConstants.productsEndpoint}/$id',
-      );
-      final data = response.data['product'];
+    final result = await networkService.request(
+      '${NetworkConstants.productsEndpoint}/$id',
+      method: Method.get,
+    );
 
-      final product = ProductDetailsModel.fromJson(data);
-      return Right(product);
-    } on DioException catch (error) {
-      return Left(ServiceFailure(message: error.message.toString()));
-    } catch (error) {
-      return Left(UnexpectedFailure());
-    }
+    return result.fold(
+          (failure) => Left(failure), // Handle errors here
+          (response) {
+        final data = response.data['product'];
+        final product = ProductDetailsModel.fromJson(data);
+        return Right(product); // Return the product if successful
+      },
+    );
   }
 }

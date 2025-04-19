@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:lints_localization_assignment9/core/navigation/app_router.dart';
 import 'package:lints_localization_assignment9/core/networking/network_service.dart';
 import 'package:lints_localization_assignment9/features/product_details/data/data_source.dart';
 import 'package:lints_localization_assignment9/features/product_details/data/repository.dart';

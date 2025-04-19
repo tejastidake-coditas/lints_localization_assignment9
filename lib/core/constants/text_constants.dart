@@ -69,6 +69,7 @@ class TextConstants {
   static const String orderNow = 'ORDER NOW';
   static const String errorFetchingProducts = 'Error fetching products: ';
   static const String errorSearchingProducts = 'Error searching products: ';
+  static const String defaultErrorMessage = 'Something went wrong';
   static const String addProducts = '"Add Product"';
   static const closeIcon = Icon(Icons.close, size: 20);
   static const brokenIcon = Icon(

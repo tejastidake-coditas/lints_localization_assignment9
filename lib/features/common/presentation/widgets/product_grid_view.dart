@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/widgets/product_card_tile.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/entities/product_listing_entity.dart';
 
 class ProductGridView extends StatelessWidget {
   final List<ProductListingEntity> products;

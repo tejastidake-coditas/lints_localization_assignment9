@@ -57,7 +57,7 @@ class ProductListingBloc
       final matchesQuery = title.contains(query);
 
       final matchesCategory = _selectedCategory == 'All' ||
-          (product.category?.toLowerCase() == _selectedCategory.toLowerCase());
+          (product.category.toLowerCase() == _selectedCategory.toLowerCase());
 
       final shouldInclude = matchesQuery && matchesCategory;
       if (shouldInclude) print('✅ Match: ${product.title}');
@@ -90,7 +90,7 @@ class ProductListingBloc
     final filtered = _allProducts
         .where(
           (product) =>
-      (product.category ?? '').toLowerCase() ==
+      (product.category).toLowerCase() ==
           selectedCategory.toLowerCase(),
     )
         .toList();
