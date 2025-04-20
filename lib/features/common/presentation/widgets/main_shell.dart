@@ -10,14 +10,13 @@ class MainShell extends StatelessWidget {
   const MainShell({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return AutoTabsScaffold(
+  Widget build(BuildContext context) => AutoTabsScaffold(
       routes: [
         ProductListScreenRoute(),
-        ProfileScreenRoute(),
-        AddProductScreenRoute(),
-        ChatScreenRoute(),
-        FavoriteScreenRoute(),
+        const ProfileScreenRoute(),
+        const AddProductScreenRoute(),
+        const ChatScreenRoute(),
+        const FavoriteScreenRoute(),
       ],
       floatingActionButton: Builder(
         builder: (context) {
@@ -36,8 +35,7 @@ class MainShell extends StatelessWidget {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomAppBar(
+      bottomNavigationBuilder: (_, tabsRouter) => BottomAppBar(
           color: ColorConstants.slidersButtonBackgroundColor,
           shape: const CircularNotchedRectangle(),
           notchMargin: 6,
@@ -51,9 +49,7 @@ class MainShell extends StatelessWidget {
               BottomNavItem(tabsRouter: tabsRouter, index: 4),
             ],
           ),
-        );
-      },
+        ),
     );
-  }
 }
 

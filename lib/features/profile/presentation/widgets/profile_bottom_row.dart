@@ -21,8 +21,7 @@ class ProfileBottomRow extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => Container(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
       decoration: BoxDecoration(
         color: isFilled ? backgroundColor : ColorConstants.transparent,
@@ -50,5 +49,4 @@ class ProfileBottomRow extends StatelessWidget {
         ],
       ),
     );
-  }
 }

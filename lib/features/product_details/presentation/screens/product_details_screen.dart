@@ -20,171 +20,168 @@ class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key, required this.productId});
 
   @override
-  Widget build(BuildContext context) {
-    // print('Hitting URL: ${NetworkConstants.productsEndpoint}/$productId');
-
-    return BlocProvider(
-      create: (_) =>
-          injectorInstance<ProductDetailsBloc>()..add(GetProductDetailsEvent(productId)),
-      child: Scaffold(
-        backgroundColor: ColorConstants.backgroundColor,
-        body: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
-          builder: (context, state) {
-            if (state is ProductDetailsLoading) {
-              return Center(child: CircularProgressIndicator());
-            } else if (state is ProductDetailsError) {
-              return Center(child: Text(state.message));
-            } else if (state is ProductDetailsLoaded) {
-              final product = state.product;
-              return SingleChildScrollView(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 18, vertical: 38),
-                  child: Column(children: [
-                    ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: Image.asset(
-                        TextConstants.leftBlackArrow,
-                        width: 28,
-                      ),
-                      trailing: Image.asset(
-                        TextConstants.blackSearch,
-                        width: 28,
-                      ),
-                    ),
-                    Image.network(product.image),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                      product.title,
-                      style: StyleConstants.detailsTitleTextStyle,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        RatingWidget(screen: TextConstants.detailsText),
-                        Text(
-                          TextConstants.durationText,
-                          style: StyleConstants.minsDurationTextStyle,
+  Widget build(BuildContext context) => BlocProvider<ProductDetailsBloc>(
+        create: (_) => injectorInstance<ProductDetailsBloc>()
+          ..add(GetProductDetailsEvent(productId)),
+        child: Scaffold(
+          backgroundColor: ColorConstants.backgroundColor,
+          body: BlocBuilder<ProductDetailsBloc, ProductDetailsState>(
+            builder: (context, state) {
+              if (state is ProductDetailsLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is ProductDetailsError) {
+                return Center(child: Text(state.message));
+              } else if (state is ProductDetailsLoaded) {
+                final product = state.product;
+                return SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 38),
+                    child: Column(children: [
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        leading: Image.asset(
+                          TextConstants.leftBlackArrow,
+                          width: 28,
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(product.description,
-                        style: StyleConstants.detailsDescriptionTextStyle),
-                    SizedBox(
-                      height: 28,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                            spacing: 3,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(TextConstants.spicy,
-                                  style: StyleConstants.spicyTextStyle),
-                              SpicySlider(),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    TextConstants.hot,
-                                    style: StyleConstants.mildHot,
-                                  ),
-                                  Text(
-                                    TextConstants.hot,
-                                    style: StyleConstants.mildHot,
-                                  ),
-                                ],
-                              )
-                            ]),
-                        Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(TextConstants.portion,
-                                  style: StyleConstants.spicyTextStyle),
-                              Row(
-                                children: [
-                                  IncrementDecrementWidget(
-                                    icon: Icons.remove,
-                                  ),
-                                  SizedBox(width: 15),
-                                  Text(
-                                    TextConstants.number,
-                                    style: StyleConstants.bodyText3,
-                                  ),
-                                  SizedBox(width: 15),
-                                  IncrementDecrementWidget(
-                                    icon: Icons.add,
-                                  ),
-                                ],
-                              ),
-                            ])
-                      ],
-                    ),
-                    SizedBox(
-                      height: 72,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorConstants.successDialogTitle,
-                            fixedSize: const Size(112, 64),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            elevation: 4,
-                          ),
-                          child: Text(
-                            '\$${product.price}',
-                            style: StyleConstants.priceTextStyle,
-                          ),
+                        trailing: Image.asset(
+                          TextConstants.blackSearch,
+                          width: 28,
                         ),
-                        ElevatedButton(
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) =>
-                                    const OrderSuccessDialog(),
-                              );
-                            },
+                      ),
+                      Image.network(product.image),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Text(
+                        product.title,
+                        style: StyleConstants.detailsTitleTextStyle,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Row(
+                        children: [
+                          RatingWidget(screen: TextConstants.detailsText),
+                          Text(
+                            TextConstants.durationText,
+                            style: StyleConstants.minsDurationTextStyle,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(product.description,
+                          style: StyleConstants.detailsDescriptionTextStyle),
+                      const SizedBox(
+                        height: 28,
+                      ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                              spacing: 3,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(TextConstants.spicy,
+                                    style: StyleConstants.spicyTextStyle),
+                                SpicySlider(),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      TextConstants.hot,
+                                      style: StyleConstants.mildHot,
+                                    ),
+                                    Text(
+                                      TextConstants.hot,
+                                      style: StyleConstants.mildHot,
+                                    ),
+                                  ],
+                                )
+                              ]),
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(TextConstants.portion,
+                                    style: StyleConstants.spicyTextStyle),
+                                Row(
+                                  children: [
+                                    IncrementDecrementWidget(
+                                      icon: Icons.remove,
+                                    ),
+                                    SizedBox(width: 15),
+                                    Text(
+                                      TextConstants.number,
+                                      style: StyleConstants.bodyText3,
+                                    ),
+                                    SizedBox(width: 15),
+                                    IncrementDecrementWidget(
+                                      icon: Icons.add,
+                                    ),
+                                  ],
+                                ),
+                              ])
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 72,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  ColorConstants.detailsButtonColor,
-                              fixedSize: const Size(238, 64),
+                                  ColorConstants.successDialogTitle,
+                              fixedSize: const Size(112, 64),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               elevation: 4,
                             ),
                             child: Text(
-                              TextConstants.orderNow,
-                              style: StyleConstants.orderNowStyle,
-                            )),
-                      ],
-                    )
-                  ]),
+                              '\$${product.price}',
+                              style: StyleConstants.priceTextStyle,
+                            ),
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) =>
+                                      const OrderSuccessDialog(),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    ColorConstants.detailsButtonColor,
+                                fixedSize: const Size(238, 64),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                elevation: 4,
+                              ),
+                              child: const Text(
+                                TextConstants.orderNow,
+                                style: StyleConstants.orderNowStyle,
+                              )),
+                        ],
+                      )
+                    ]),
+                  ),
+                );
+              }
+              return const Center(
+                child: Text(
+                  TextConstants.noProductAvailable,
                 ),
               );
-            }
-            return Center(
-              child: Text(
-                TextConstants.noProductAvailable,
-              ),
-            );
-          },
+            },
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

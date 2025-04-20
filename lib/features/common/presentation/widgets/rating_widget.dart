@@ -9,8 +9,7 @@ class RatingWidget extends StatelessWidget {
   const RatingWidget({super.key, required this.screen});
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget build(BuildContext context) => Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset(
@@ -26,5 +25,4 @@ class RatingWidget extends StatelessWidget {
         )
       ],
     );
-  }
 }

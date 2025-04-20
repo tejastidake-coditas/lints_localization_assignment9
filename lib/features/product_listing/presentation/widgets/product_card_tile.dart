@@ -28,14 +28,13 @@ class ProductCardTile extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
+  Widget build(BuildContext context) => GestureDetector(
       onTap: () => _handleTap(context),
       child: Card(
         elevation: 2,
         color: ColorConstants.white,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -68,7 +67,7 @@ class ProductCardTile extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RatingWidget(screen: TextConstants.listing),
@@ -80,5 +79,4 @@ class ProductCardTile extends StatelessWidget {
         ),
       ),
     );
-  }
 }

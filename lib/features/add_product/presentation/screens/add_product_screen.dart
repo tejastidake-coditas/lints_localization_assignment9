@@ -7,19 +7,17 @@ class AddProductScreen extends StatelessWidget {
   const AddProductScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         title: const Text(TextConstants.addProducts),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(TextConstants.addProductsScreen),
+            Text(TextConstants.addProductsScreen),
           ],
         ),
       ),
     );
-  }
 }

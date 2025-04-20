@@ -14,8 +14,7 @@ class CategoryListTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Widget build(BuildContext context) => Padding(
       padding: const EdgeInsets.fromLTRB(8, 0, 0, 18),
       child: GestureDetector(
         onTap: onTap,
@@ -28,7 +27,7 @@ class CategoryListTile extends StatelessWidget {
             boxShadow: isSelected
                 ? [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.white.withValues(alpha: 0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
@@ -49,5 +48,4 @@ class CategoryListTile extends StatelessWidget {
         ),
       ),
     );
-  }
 }

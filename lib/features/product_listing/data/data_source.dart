@@ -38,7 +38,7 @@ class ProductListDataSourceImplementation implements ProductsListDataSource {
           }
         },
       );
-    } on DioError catch (error) {
+    } on DioException catch (error) {
       return Left(ServiceFailure(message: error.message.toString()));
     } catch (error) {
       return Left(UnexpectedFailure());

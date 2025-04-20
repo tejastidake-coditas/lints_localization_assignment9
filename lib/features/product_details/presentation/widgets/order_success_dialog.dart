@@ -7,8 +7,7 @@ class OrderSuccessDialog extends StatelessWidget {
   const OrderSuccessDialog({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Dialog(
+  Widget build(BuildContext context) => Dialog(
       backgroundColor: ColorConstants.transparent,
       child: Center(
         child: Container(
@@ -33,7 +32,7 @@ class OrderSuccessDialog extends StatelessWidget {
                   height: 90,
                   width: 90,
                   padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ColorConstants.red,
                     shape: BoxShape.circle,
                   ),
@@ -42,12 +41,12 @@ class OrderSuccessDialog extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 28),
-                Text(
+                const Text(
                   TextConstants.successTitle,
                   style: StyleConstants.successTitle,
                 ),
                 const SizedBox(height: 12),
-                Text(
+                const Text(
                   TextConstants.successMessage,
                   textAlign: TextAlign.center,
                   style: StyleConstants.successMessage,
@@ -66,7 +65,7 @@ class OrderSuccessDialog extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       TextConstants.goBack,
                       style: StyleConstants.buttonText,
                     ),
@@ -78,5 +77,4 @@ class OrderSuccessDialog extends StatelessWidget {
         ),
       ),
     );
-  }
 }

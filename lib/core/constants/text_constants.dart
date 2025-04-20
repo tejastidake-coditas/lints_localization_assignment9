@@ -16,30 +16,30 @@ class TextConstants {
   static const int networkResponseReceiveTimeout = networkTimeout;
 
   static const String appName = 'Foodgo';
-  static const String listing = "listing";
+  static const String listing = 'listing';
 
   static const String homeIcon = 'assets/images/home.png';
   static const String profileIcon = 'assets/images/profile.png';
   static const String chatIcon = 'assets/images/chat.png';
   static const String wishlistIcon = 'assets/images/wishlist.png';
 
-  static const String chat = "Chat";
-  static const String noProductAvailable = "'No product details available.'";
-  static const String failedToFetch = "Failed to fetch product details";
-  static const String favorites = "Favorite";
+  static const String chat = 'Chat';
+  static const String noProductAvailable = 'No product details available.';
+  static const String failedToFetch = 'Failed to fetch product details';
+  static const String favorites = 'Favorite';
   static const String password = 'Password🔒';
-  static const String favoriteScreen = "Favorite Screen";
-  static const String tickImage = "assets/images/tick.png";
+  static const String favoriteScreen = 'Favorite Screen';
+  static const String tickImage = 'assets/images/tick.png';
   static const String portion = 'Portion';
   static const String deliveryAddress = 'Delivery Address';
   static const String leftBlackArrow = 'assets/images/arrow_left_black.png';
   static const String blackSearch = 'assets/images/search_black.png';
   static const String editIconPng = 'assets/images/edit.png';
-  static const String durationText = "  -  26 mins";
+  static const String durationText = '  -  26 mins';
   static const String logout = 'Log out';
-  static const String detailsText = "details";
-  static const String addProductsScreen = "Add Product Screen";
-  static const String chatScreen = "Chat Screen";
+  static const String detailsText = 'details';
+  static const String addProductsScreen = 'Add Product Screen';
+  static const String chatScreen = 'Chat Screen';
   static const String number = '2';
   static const String goBack = 'Go Back';
   static const String appTagLine = 'Order your favourite food!';
@@ -63,14 +63,14 @@ class TextConstants {
   static const String modelLabelText = 'Model';
   static const String colorLabelText = 'Color';
   static const String categoryLabelText = 'Category';
-  static const String paymentDetails = "Payment Details";
-  static const String orderHistory = "Order history";
-  static const String editProfile = "Edit Profile";
+  static const String paymentDetails = 'Payment Details';
+  static const String orderHistory = 'Order history';
+  static const String editProfile = 'Edit Profile';
   static const String orderNow = 'ORDER NOW';
   static const String errorFetchingProducts = 'Error fetching products: ';
   static const String errorSearchingProducts = 'Error searching products: ';
   static const String defaultErrorMessage = 'Something went wrong';
-  static const String addProducts = '"Add Product"';
+  static const String addProducts = 'Add Product';
   static const closeIcon = Icon(Icons.close, size: 20);
   static const brokenIcon = Icon(
     Icons.broken_image,

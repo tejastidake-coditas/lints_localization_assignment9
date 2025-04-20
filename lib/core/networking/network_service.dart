@@ -12,7 +12,7 @@ class NetworkService {
   NetworkService() {
     final header = {'Content-Type': NetworkConstants.contentType};
 
-    BaseOptions baseOptions = BaseOptions(
+    final BaseOptions baseOptions = BaseOptions(
       baseUrl: NetworkConstants.baseUrl,
       connectTimeout: NetworkConstants.connectTimeout,
       receiveTimeout: NetworkConstants.receiveTimeout,

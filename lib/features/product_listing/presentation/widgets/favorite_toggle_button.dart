@@ -10,12 +10,10 @@ class FavoriteToggleButton extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return SvgPicture.asset(
+  Widget build(BuildContext context) => SvgPicture.asset(
       'assets/images/heart_unfilled.svg',
       // onPressed: () {
       //   isFavoriteNotifier.value = !isFavoriteNotifier.value;
       // },
     );
-  }
 }

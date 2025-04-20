@@ -14,8 +14,7 @@ class _SpicySliderState extends State<SpicySlider> {
   double _value = Random().nextDouble();
 
   @override
-  Widget build(BuildContext context) {
-    return SliderTheme(
+  Widget build(BuildContext context) => SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackHeight: 6,
       ),
@@ -29,5 +28,4 @@ class _SpicySliderState extends State<SpicySlider> {
         },
       ),
     );
-  }
 }

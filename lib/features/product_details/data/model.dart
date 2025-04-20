@@ -16,8 +16,7 @@ class ProductDetailsModel extends ProductDetailsEntity {
   });
 
   // from json
-  factory ProductDetailsModel.fromJson(Map<String, dynamic> json) {
-    return ProductDetailsModel(
+  factory ProductDetailsModel.fromJson(Map<String, dynamic> json) => ProductDetailsModel(
       id: json['id'] ?? '',
       title: json['title'] ?? '',
       image: json['image'] ?? '',
@@ -30,5 +29,4 @@ class ProductDetailsModel extends ProductDetailsEntity {
       discount: json['discount'] ?? 0,
       rating: json['rating'] ?? 4,
     );
-  }
 }

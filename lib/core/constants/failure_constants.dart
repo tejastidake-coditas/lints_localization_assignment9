@@ -10,5 +10,5 @@ class ServiceFailure extends Failure {
 }
 
 class UnexpectedFailure extends Failure {
-  UnexpectedFailure() : super("Unexpected Error");
+  UnexpectedFailure() : super('Unexpected Error');
 }

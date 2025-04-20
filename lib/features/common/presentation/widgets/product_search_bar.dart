@@ -43,7 +43,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
   void _onSearchChanged(String query) {
     _debounce?.cancel();
     _debounce = Timer(const Duration(seconds: 1), () {
-      print('⏳ Debounced search query: $query');
+      // debugPrint('⏳ Debounced search query: $query');
 
       // Trigger the Bloc event only if the query is not empty or too short
       if (query.length >= 2) {
@@ -58,8 +58,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
+  Widget build(BuildContext context) => Card(
       color: ColorConstants.white,
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -90,5 +89,4 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
         onChanged: _onSearchChanged, // Handle search input with debouncing
       ),
     );
-  }
 }

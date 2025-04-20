@@ -21,14 +21,13 @@ class ProductListScreen extends StatelessWidget {
   final TextEditingController _searchController = TextEditingController(); // 👈 ADD THIS
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider<ProductListingBloc>(
+  Widget build(BuildContext context) => BlocProvider<ProductListingBloc>(
       create: (_) =>
       injectorInstance<ProductListingBloc>()..add(GetAllProductsEvent()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: ColorConstants.backgroundColor,
-          appBar: HomeAppBarWidget(),
+          appBar: const HomeAppBarWidget(),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Column(
@@ -72,8 +71,7 @@ class ProductListScreen extends StatelessWidget {
                 SizedBox(
                   height: 68,
                   child: BlocBuilder<ProductListingBloc, ProductListingState>(
-                    builder: (context, state) {
-                      return ListView.separated(
+                    builder: (context, state) => ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: categories.length,
                         separatorBuilder: (_, __) => const SizedBox(width: 6),
@@ -94,8 +92,7 @@ class ProductListScreen extends StatelessWidget {
                             },
                           );
                         },
-                      );
-                    },
+                      ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -124,5 +121,4 @@ class ProductListScreen extends StatelessWidget {
         ),
       ),
     );
-  }
 }

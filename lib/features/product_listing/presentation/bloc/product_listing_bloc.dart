@@ -30,7 +30,7 @@ class ProductListingBloc
       },
           (products) {
         _allProducts = products;
-        print('🔥 All products loaded: ${_allProducts.length}');
+        // print('🔥 All products loaded: ${_allProducts.length}');
         emit(ProductListingLoaded(products, 'All'));
       },
     );
@@ -50,7 +50,7 @@ class ProductListingBloc
       return;
     }
 
-    print('🔍 Searching for: $query in $_selectedCategory');
+    // print('🔍 Searching for: $query in $_selectedCategory');
 
     final filteredProducts = _allProducts.where((product) {
       final title = product.title.toLowerCase();
@@ -60,7 +60,7 @@ class ProductListingBloc
           (product.category.toLowerCase() == _selectedCategory.toLowerCase());
 
       final shouldInclude = matchesQuery && matchesCategory;
-      if (shouldInclude) print('✅ Match: ${product.title}');
+      // if (shouldInclude) print('✅ Match: ${product.title}');
 
       return shouldInclude;
     }).toList();

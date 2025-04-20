@@ -7,8 +7,7 @@ class IncrementDecrementWidget extends StatelessWidget {
   const IncrementDecrementWidget({super.key, required this.icon});
 
   @override
-  Widget build(BuildContext context) {
-    return IconButton(
+  Widget build(BuildContext context) => IconButton(
       style: IconButton.styleFrom(
         backgroundColor: ColorConstants.red,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -16,5 +15,4 @@ class IncrementDecrementWidget extends StatelessWidget {
       onPressed: () {},
       icon: Icon(icon, color: ColorConstants.white),
     );
-  }
 }
