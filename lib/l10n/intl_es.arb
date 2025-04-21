@@ -14,6 +14,7 @@
   "ratingText": "5.0",
   "brandLabelText": "Marca",
   "modelLabelText": "Modelo",
+  "profileOptions": "Opciones de perfil",
   "colorLabelText": "Color",
   "categoryLabelText": "Categoría",
   "paymentDetails": "Detalles del pago",

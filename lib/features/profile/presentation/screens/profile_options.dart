@@ -23,7 +23,7 @@ class _ProfileOptionsState extends State<ProfileOptions> {
     final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(loc.editProfile)),
+      appBar: AppBar(title: Text(loc.profileOptions)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
