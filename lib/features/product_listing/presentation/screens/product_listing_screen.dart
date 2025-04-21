@@ -18,8 +18,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ProductListScreen extends StatelessWidget {
   ProductListScreen({super.key});
 
-  // final List<String> categories = ['All', 'Audio', 'Gaming', 'Mobile', 'Tv'];
-  final TextEditingController _searchController = TextEditingController(); // 👈 ADD THIS
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +34,7 @@ class ProductListScreen extends StatelessWidget {
 
     return BlocProvider<ProductListingBloc>(
       create: (_) =>
-      injectorInstance<ProductListingBloc>()
-        ..add(GetAllProductsEvent()),
+          injectorInstance<ProductListingBloc>()..add(GetAllProductsEvent()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: ColorConstants.backgroundColor,
@@ -51,18 +49,17 @@ class ProductListScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ProductSearchBar(
-                          controller: _searchController, // 👈 PASS IT
-                          onChanged: (query) =>
-                              context
-                                  .read<ProductListingBloc>()
-                                  .add(SearchProductsEvent(query.trim())),
+                          controller: _searchController,
+                          onChanged: (query) => context
+                              .read<ProductListingBloc>()
+                              .add(SearchProductsEvent(query.trim())),
                         ),
                       ),
                       const SizedBox(width: 14),
                       IconButton(
                         style: IconButton.styleFrom(
                           backgroundColor:
-                          ColorConstants.slidersButtonBackgroundColor,
+                              ColorConstants.slidersButtonBackgroundColor,
                           fixedSize: const Size(54, 54),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -74,9 +71,7 @@ class ProductListScreen extends StatelessWidget {
                           height: 24,
                           fit: BoxFit.contain,
                         ),
-                        onPressed: () {
-                          // TODO: Navigate to another screen
-                        },
+                        onPressed: () {},
                       ),
                     ],
                   ),
@@ -85,29 +80,29 @@ class ProductListScreen extends StatelessWidget {
                 SizedBox(
                   height: 68,
                   child: BlocBuilder<ProductListingBloc, ProductListingState>(
-                    builder: (context, state) =>
-                        ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: categories.length,
-                          separatorBuilder: (_, __) => const SizedBox(width: 6),
-                          itemBuilder: (context, index) {
-                            final isSelected = state is ProductListingLoaded &&
-                                state.selectedCategory.toLowerCase() ==
-                                    categories[index].toLowerCase();
+                    builder: (context, state) => ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categories.length,
+                      separatorBuilder: (_, __) => const SizedBox(width: 6),
+                      itemBuilder: (context, index) {
+                        final isSelected = state is ProductListingLoaded &&
+                            state.selectedCategory.toLowerCase() ==
+                                categories[index].toLowerCase();
 
-                            return CategoryListTile(
-                              title: categories[index],
-                              isSelected: isSelected,
-                              onTap: () {
-                                _searchController.clear(); // 👈 CLEAR THE TEXT
+                        return CategoryListTile(
+                          title: categories[index],
+                          isSelected: isSelected,
+                          onTap: () {
+                            _searchController.clear();
 
-                                FocusScope.of(context).unfocus();
-                                context.read<ProductListingBloc>().add(
-                                    FilterByCategory(categories[index]));
-                              },
-                            );
+                            FocusScope.of(context).unfocus();
+                            context
+                                .read<ProductListingBloc>()
+                                .add(FilterByCategory(categories[index]));
                           },
-                        ),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -115,8 +110,7 @@ class ProductListScreen extends StatelessWidget {
                   child: BlocBuilder<ProductListingBloc, ProductListingState>(
                     builder: (context, state) {
                       if (state is ProductListingLoading) {
-                        return const Center(
-                            child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       } else if (state is ProductListingLoaded) {
                         if (state.products.isEmpty) {
                           return const Center(

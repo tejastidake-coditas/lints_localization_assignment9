@@ -15,17 +15,17 @@ class _SpicySliderState extends State<SpicySlider> {
 
   @override
   Widget build(BuildContext context) => SliderTheme(
-      data: SliderTheme.of(context).copyWith(
-        trackHeight: 6,
-      ),
-      child: Slider(
-        padding: EdgeInsets.zero,
-        thumbColor: ColorConstants.sliderThumbColor,
-        activeColor: ColorConstants.sliderThumbColor,
-        value: _value,
-        onChanged: (val) {
-          setState(() => _value = val);
-        },
-      ),
-    );
+        data: SliderTheme.of(context).copyWith(
+          trackHeight: 6,
+        ),
+        child: Slider(
+          padding: EdgeInsets.zero,
+          thumbColor: ColorConstants.sliderThumbColor,
+          activeColor: ColorConstants.sliderThumbColor,
+          value: _value,
+          onChanged: (val) {
+            setState(() => _value = val);
+          },
+        ),
+      );
 }

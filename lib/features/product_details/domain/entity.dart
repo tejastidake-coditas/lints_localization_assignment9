@@ -4,11 +4,7 @@ class ProductDetailsEntity {
   final String image;
   final int price;
   final String description;
-  final String brand;
-  final String model;
-  final String color;
   final String category;
-  final int discount;
   final int rating;
 
   ProductDetailsEntity({
@@ -17,11 +13,7 @@ class ProductDetailsEntity {
     required this.image,
     required this.price,
     required this.description,
-    required this.brand,
-    required this.model,
-    required this.color,
     required this.category,
-    required this.discount,
     required this.rating,
   });
 }

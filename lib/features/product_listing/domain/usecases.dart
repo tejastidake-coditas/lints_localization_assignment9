@@ -15,17 +15,4 @@ class ProductsUseCases {
       (products) => Right(products),
     );
   }
-  //
-  // // Add searchProducts method here
-  // Future<Either<Failure, List<ProductListingEntity>>> searchProducts(
-  //     String query) async {
-  //   final response = await productsRepository.searchProducts(query);
-  //   return response.fold(
-  //     (failure) => Left(failure),
-  //     (products) => Right(products),
-  //   );
-  // }
-
-
-
 }

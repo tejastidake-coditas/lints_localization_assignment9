@@ -14,19 +14,8 @@ class ProductsRepositoryImplementation implements ProductsRepository {
     final response = await productsListDataSource.getAllProducts();
 
     return response.fold(
-          (failure) => Left(failure),
-          (products) => Right(products),
+      (failure) => Left(failure),
+      (products) => Right(products),
     );
   }
-
-
-  // @override
-  // Future<Either<Failure, List<ProductListingEntity>>> searchProducts(String query) async {
-  //   final result = await productsListDataSource.searchProducts(query);
-  //   return result.fold(
-  //         (failure) => Left(failure),
-  //         (products) => Right(products),
-  //   );
-  // }
-
 }

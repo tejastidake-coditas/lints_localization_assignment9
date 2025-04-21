@@ -8,16 +8,16 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(
-        title: const Text(TextConstants.favorites),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(TextConstants.favoriteScreen),
-          ],
+        appBar: AppBar(
+          title: const Text(TextConstants.favorites),
         ),
-      ),
-    );
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(TextConstants.favoriteScreen),
+            ],
+          ),
+        ),
+      );
 }

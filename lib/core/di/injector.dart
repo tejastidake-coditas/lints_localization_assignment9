@@ -20,8 +20,6 @@ abstract class Injector {
     injectorInstance
         .registerLazySingleton<NetworkService>(() => NetworkService());
 
-    // injectorInstance.registerLazySingleton<AppRouter>(() => AppRouter());
-
     // products data source
     injectorInstance.registerLazySingleton<ProductsListDataSource>(
       () => ProductListDataSourceImplementation(

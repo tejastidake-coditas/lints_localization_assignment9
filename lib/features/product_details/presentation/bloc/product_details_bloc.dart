@@ -13,16 +13,16 @@ class ProductDetailsBloc
   }
 
   Future<void> _onGetProductDetails(
-      GetProductDetailsEvent event,
-      Emitter<ProductDetailsState> emit,
-      ) async {
+    GetProductDetailsEvent event,
+    Emitter<ProductDetailsState> emit,
+  ) async {
     emit(ProductDetailsLoading());
 
     final result = await productDetailsUseCases.getProductById(event.id);
 
     result.fold(
-          (failure) => emit(ProductDetailsError(failure.message)),
-          (product) => emit(ProductDetailsLoaded(product)),
+      (failure) => emit(ProductDetailsError(failure.message)),
+      (product) => emit(ProductDetailsLoaded(product)),
     );
   }
 }

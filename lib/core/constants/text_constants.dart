@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 
 class TextConstants {
+  static const String unexpectedError = 'Unexpected error: ';
+  static const String invalidResponseFormat = 'Invalid response format.';
+  static const String serverError = 'Server error: ';
+  static const String clientError = 'Client error: ';
   static const String spicy = 'Spicy';
+  static const String noStatusCode = 'No status code received';
+  static const String all = 'All';
   static const String searchIcon = 'assets/images/search_icon.svg';
+  static const String arrowLeftIcon = 'assets/images/arrow_left.png';
+  static const String initialNameValue = 'Sophia Patel';
+  static const String initialEmailValue = 'sophiapatel@gmail.com';
+  static const String initialAddressValue =
+      '123 Main St Apartment 4A,New York, NY';
   static const String cartIcon = 'assets/images/cart_icon.svg';
   static const String starIcon = 'assets/images/star_icon.svg';
+  static const String english = 'English';
+  static const String hindi = 'हिन्दी';
+  static const String spanish = 'Español';
   static const String addIcon = 'assets/images/add.png';
+  static const String heartUnfilled = 'assets/images/heart_unfilled.svg';
   static const String minusIcon = 'assets/images/minus_icon.svg';
   static const String settingsSliders = 'assets/images/settings-sliders.svg';
   static const String productDetailBackIcon =

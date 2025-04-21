@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 
 class FavoriteToggleButton extends StatelessWidget {
-  // final ValueNotifier<bool> isFavoriteNotifier;
-
   const FavoriteToggleButton({
     super.key,
-    // required this.isFavoriteNotifier,
   });
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-      'assets/images/heart_unfilled.svg',
-      // onPressed: () {
-      //   isFavoriteNotifier.value = !isFavoriteNotifier.value;
-      // },
-    );
+        TextConstants.heartUnfilled,
+      );
 }

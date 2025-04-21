@@ -4,7 +4,6 @@ import 'main_shell_routes.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Route')
 class AppRouter extends RootStackRouter {
-
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
 

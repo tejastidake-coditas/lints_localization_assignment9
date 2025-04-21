@@ -13,7 +13,7 @@ import 'package:lints_localization_assignment9/features/product_listing/presenta
 @RoutePage()
 class ProductSearchBar extends StatefulWidget {
   final ValueChanged<String> onChanged;
-  final TextEditingController controller; // 👈 ADD THIS
+  final TextEditingController controller;
 
   const ProductSearchBar(
       {super.key, required this.onChanged, required this.controller});
@@ -23,8 +23,6 @@ class ProductSearchBar extends StatefulWidget {
 }
 
 class _ProductSearchBarState extends State<ProductSearchBar> {
-  // final TextEditingController _controller = TextEditingController();
-
   Timer? _debounce;
 
   @override
@@ -32,27 +30,21 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
     super.initState();
   }
 
-
   @override
   void dispose() {
     widget.controller.dispose();
-    _debounce
-        ?.cancel(); // Cancel the debounce timer when the widget is disposed
+    _debounce?.cancel();
     super.dispose();
   }
 
   void _onSearchChanged(String query) {
     _debounce?.cancel();
     _debounce = Timer(const Duration(seconds: 1), () {
-      // debugPrint('⏳ Debounced search query: $query');
-
-      // Trigger the Bloc event only if the query is not empty or too short
       if (query.length >= 2) {
         context
             .read<ProductListingBloc>()
             .add(SearchProductsEvent(query.trim()));
       } else if (query.isEmpty) {
-        // If query is empty, clear the results or trigger relevant action
         context.read<ProductListingBloc>().add(SearchProductsEvent(''));
       }
     });
@@ -60,34 +52,33 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
 
   @override
   Widget build(BuildContext context) => Card(
-      color: ColorConstants.white,
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      margin: EdgeInsets.zero,
-      child: TextField(
-        controller: widget.controller,
-        style: StyleConstants.searchHintStyle,
-        decoration: InputDecoration(
-          hintText: AppLocalizations.of(context)!.searchBarHintText,
-          hintStyle: StyleConstants.searchHintStyle,
-          contentPadding: const EdgeInsets.symmetric(vertical: 18),
-          border: InputBorder.none,
-          prefixIcon: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: SvgPicture.asset(
-              TextConstants.searchIcon,
-              width: 20,
-              height: 20,
-              fit: BoxFit.contain,
-            ),
-          ),
-          prefixIconConstraints:
-              const BoxConstraints(minWidth: 40, minHeight: 40),
-
+        color: ColorConstants.white,
+        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
         ),
-        onChanged: _onSearchChanged, // Handle search input with debouncing
-      ),
-    );
+        margin: EdgeInsets.zero,
+        child: TextField(
+          controller: widget.controller,
+          style: StyleConstants.searchHintStyle,
+          decoration: InputDecoration(
+            hintText: AppLocalizations.of(context)!.searchBarHintText,
+            hintStyle: StyleConstants.searchHintStyle,
+            contentPadding: const EdgeInsets.symmetric(vertical: 18),
+            border: InputBorder.none,
+            prefixIcon: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: SvgPicture.asset(
+                TextConstants.searchIcon,
+                width: 20,
+                height: 20,
+                fit: BoxFit.contain,
+              ),
+            ),
+            prefixIconConstraints:
+                const BoxConstraints(minWidth: 40, minHeight: 40),
+          ),
+          onChanged: _onSearchChanged,
+        ),
+      );
 }

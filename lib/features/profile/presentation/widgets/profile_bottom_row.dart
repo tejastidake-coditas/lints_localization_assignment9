@@ -22,31 +22,30 @@ class ProfileBottomRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
-      decoration: BoxDecoration(
-        color: isFilled ? backgroundColor : ColorConstants.transparent,
-        borderRadius: BorderRadius.circular(20),
-        border:
-            isFilled
-                ? null
-                : Border.all(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
+        decoration: BoxDecoration(
+          color: isFilled ? backgroundColor : ColorConstants.transparent,
+          borderRadius: BorderRadius.circular(20),
+          border: isFilled
+              ? null
+              : Border.all(
                   color: borderColor ?? ColorConstants.darkColor,
                   width: borderWidth ?? 1,
                 ),
-      ),
-      child: Row(
-        spacing: 17,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            label,
-            style: StyleConstants.bodyText1.copyWith(
-              fontFamily: 'Roboto',
-              color: isFilled ? Colors.white : borderColor,
+        ),
+        child: Row(
+          spacing: 17,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              label,
+              style: StyleConstants.bodyText1.copyWith(
+                fontFamily: 'Roboto',
+                color: isFilled ? ColorConstants.white : borderColor,
+              ),
             ),
-          ),
-          icon,
-        ],
-      ),
-    );
+            icon,
+          ],
+        ),
+      );
 }

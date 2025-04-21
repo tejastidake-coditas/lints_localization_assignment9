@@ -315,7 +315,6 @@ class StyleConstants {
   static const bodyText1 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    // color: ColorConstants.hintTextColor,
     fontFamily: 'Roboto',
     height: 1.5,
     letterSpacing: 0,

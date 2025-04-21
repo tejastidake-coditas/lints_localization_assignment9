@@ -41,10 +41,14 @@ class ProductDetailsScreen extends StatelessWidget {
                     child: Column(children: [
                       ListTile(
                         contentPadding: EdgeInsets.zero,
-                        leading: Image.asset(
-                          TextConstants.leftBlackArrow,
-                          width: 28,
-                        ),
+                        leading: IconButton(
+                            onPressed: () {
+                              context.router.pop();
+                            },
+                            icon: Image.asset(
+                              TextConstants.leftBlackArrow,
+                              width: 28,
+                            )),
                         trailing: Image.asset(
                           TextConstants.blackSearch,
                           width: 28,

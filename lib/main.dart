@@ -23,7 +23,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _appRouter = AppRouter();
-  Locale _locale = const Locale('en'); // Default language
+  Locale _locale = const Locale('en');
 
   void setLocale(Locale locale) {
     setState(() {
@@ -33,19 +33,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
-    debugShowCheckedModeBanner: false,
-    routerConfig: _appRouter.config(),
-    locale: _locale, // 👈 Set dynamically here
-    localizationsDelegates: const [
-      AppLocalizations.delegate,
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate,
-    ],
-    supportedLocales: const [
-      Locale('en'),
-      Locale('hi'),
-      Locale('es'),
-    ],
-  );
+        debugShowCheckedModeBanner: false,
+        routerConfig: _appRouter.config(),
+        locale: _locale,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'),
+          Locale('hi'),
+          Locale('es'),
+        ],
+      );
 }

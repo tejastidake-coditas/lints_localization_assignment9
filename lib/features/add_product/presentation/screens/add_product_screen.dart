@@ -8,16 +8,16 @@ class AddProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(
-        title: const Text(TextConstants.addProducts),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(TextConstants.addProductsScreen),
-          ],
+        appBar: AppBar(
+          title: const Text(TextConstants.addProducts),
         ),
-      ),
-    );
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(TextConstants.addProductsScreen),
+            ],
+          ),
+        ),
+      );
 }

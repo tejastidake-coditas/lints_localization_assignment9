@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
 import 'package:lints_localization_assignment9/features/product_listing/domain/usecases.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/bloc/product_listing_event.dart';
@@ -8,8 +9,7 @@ class ProductListingBloc
     extends Bloc<ProductListingEvent, ProductListingState> {
   final ProductsUseCases productsUseCases;
   List<ProductListingEntity> _allProducts = [];
-  String _selectedCategory = 'All'; // ⚡️ Store the selected category
-
+  String _selectedCategory = TextConstants.all;
 
   ProductListingBloc(this.productsUseCases) : super(ProductListingInitial()) {
     on<GetAllProductsEvent>(_onGetAllProducts);
@@ -18,49 +18,43 @@ class ProductListingBloc
   }
 
   void _onGetAllProducts(
-      GetAllProductsEvent event,
-      Emitter<ProductListingState> emit,
-      ) async {
+    GetAllProductsEvent event,
+    Emitter<ProductListingState> emit,
+  ) async {
     emit(ProductListingLoading());
     final result = await productsUseCases.getAllProducts();
 
     result.fold(
-          (failure) {
-        emit(ProductListingError('Error fetching products: ${failure.toString()}'));
+      (failure) {
+        emit(ProductListingError(
+            '${TextConstants.errorFetchingProducts} ${failure.toString()}'));
       },
-          (products) {
+      (products) {
         _allProducts = products;
-        // print('🔥 All products loaded: ${_allProducts.length}');
-        emit(ProductListingLoaded(products, 'All'));
+        emit(ProductListingLoaded(products, TextConstants.all));
       },
     );
   }
 
-
-
   Future<void> _onSearchProducts(
-      SearchProductsEvent event,
-      Emitter<ProductListingState> emit,
-      ) async {
+    SearchProductsEvent event,
+    Emitter<ProductListingState> emit,
+  ) async {
     final query = event.query.trim().toLowerCase();
 
     if (query.isEmpty) {
-      // 🔁 Return to previous category state if query is cleared
       add(FilterByCategory(_selectedCategory));
       return;
     }
-
-    // print('🔍 Searching for: $query in $_selectedCategory');
 
     final filteredProducts = _allProducts.where((product) {
       final title = product.title.toLowerCase();
       final matchesQuery = title.contains(query);
 
-      final matchesCategory = _selectedCategory == 'All' ||
+      final matchesCategory = _selectedCategory == TextConstants.all ||
           (product.category.toLowerCase() == _selectedCategory.toLowerCase());
 
       final shouldInclude = matchesQuery && matchesCategory;
-      // if (shouldInclude) print('✅ Match: ${product.title}');
 
       return shouldInclude;
     }).toList();
@@ -68,21 +62,16 @@ class ProductListingBloc
     emit(ProductListingLoaded(filteredProducts, _selectedCategory));
   }
 
-
-
-
-
-
   Future<void> _onFilterByCategory(
-      FilterByCategory event,
-      Emitter<ProductListingState> emit,
-      ) async {
+    FilterByCategory event,
+    Emitter<ProductListingState> emit,
+  ) async {
     emit(ProductListingLoading());
 
     final selectedCategory = event.category;
-    _selectedCategory = selectedCategory; // ⚡️ Track selected category
+    _selectedCategory = selectedCategory;
 
-    if (selectedCategory == 'All') {
+    if (selectedCategory == TextConstants.all) {
       emit(ProductListingLoaded(_allProducts, selectedCategory));
       return;
     }
@@ -90,12 +79,11 @@ class ProductListingBloc
     final filtered = _allProducts
         .where(
           (product) =>
-      (product.category).toLowerCase() ==
-          selectedCategory.toLowerCase(),
-    )
+              (product.category).toLowerCase() ==
+              selectedCategory.toLowerCase(),
+        )
         .toList();
 
     emit(ProductListingLoaded(filtered, selectedCategory));
   }
-
 }

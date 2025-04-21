@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:lints_localization_assignment9/core/constants/failure_constants.dart';
+import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/enums/method_enum.dart';
 import 'package:lints_localization_assignment9/core/networking/network_constants.dart';
 import 'package:lints_localization_assignment9/core/networking/network_service.dart';
@@ -12,21 +13,20 @@ abstract interface class ProductsListDataSource {
 
 class ProductListDataSourceImplementation implements ProductsListDataSource {
   final NetworkService networkService;
+
   ProductListDataSourceImplementation(this.networkService);
 
   @override
   Future<Either<Failure, List<ProductListingModel>>> getAllProducts() async {
     try {
-      // Using the new 'request' method instead of 'get'
       final result = await networkService.request(
         NetworkConstants.productsEndpoint,
         method: Method.get,
       );
 
       return result.fold(
-            (failure) => Left(failure), // In case of an error, return failure
-            (response) {
-          // Ensure the response.data is a Map or List
+        (failure) => Left(failure),
+        (response) {
           if (response.data is Map<String, dynamic>) {
             final List data = response.data['products'] ?? [];
             final products = data
@@ -34,12 +34,16 @@ class ProductListDataSourceImplementation implements ProductsListDataSource {
                 .toList();
             return Right(products);
           } else {
-            return Left(ServiceFailure(message: 'Invalid response format.'));
+            return Left(
+              ServiceFailure(
+                message: TextConstants.invalidResponseFormat,
+              ),
+            );
           }
         },
       );
     } on DioException catch (error) {
-      return Left(ServiceFailure(message: error.message.toString()));
+      return Left(ServiceFailure(message: '${error.message}'));
     } catch (error) {
       return Left(UnexpectedFailure());
     }

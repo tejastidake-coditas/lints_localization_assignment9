@@ -41,10 +41,13 @@ class ColorConstants {
   static const descriptionColor = Color(0xFF6A6A6A);
   static const spicyTextColor = Color(0xFF3C2F2F);
   static const mildHotTextColor = Color(0xFF1CC019);
+  static const lightFirstGradient = Color(0xFFFF2A9D);
+  static const darkFirstGradient = Color(0xFFEF2A39);
   static const successDialogTitle = Color(0xFFEF2A39);
   static const successDialogMessage = Color(0xFF808080);
   static const white = Colors.white;
   static const black = Colors.black;
+  static const black54 = Colors.black54;
 
   static const splashScreenTop = Color.fromRGBO(255, 147, 155, 1);
   static const splashScreenBottom = Color.fromRGBO(239, 42, 57, 1);

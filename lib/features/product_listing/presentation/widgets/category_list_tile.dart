@@ -15,37 +15,39 @@ class CategoryListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 0, 18),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
-          decoration: BoxDecoration(
-            color: isSelected ? ColorConstants
-                            .slidersButtonBackgroundColor : const Color.fromRGBO(243, 244, 246, 1),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: isSelected
-                ? [
-              BoxShadow(
-                color: Colors.white.withValues(alpha: 0.3),
-                blurRadius: 8,
-                offset: const Offset(0, 4),
-              ),
-            ]
-                : [],
-          ),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.black54,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                  fontFamily: 'Inter'
+        padding: const EdgeInsets.fromLTRB(8, 0, 0, 18),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 28),
+            decoration: BoxDecoration(
+              color: isSelected
+                  ? ColorConstants.slidersButtonBackgroundColor
+                  : ColorConstants.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: isSelected
+                  ? [
+                      BoxShadow(
+                        color: ColorConstants.white.withValues(alpha: 0.3),
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ]
+                  : [],
+            ),
+            child: Center(
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: isSelected
+                        ? ColorConstants.white
+                        : ColorConstants.black54,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    fontFamily: 'Inter'),
               ),
             ),
           ),
         ),
-      ),
-    );
+      );
 }

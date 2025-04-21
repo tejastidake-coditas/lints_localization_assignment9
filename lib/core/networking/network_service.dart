@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:lints_localization_assignment9/core/constants/failure_constants.dart';
+import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/enums/method_enum.dart';
 import 'package:lints_localization_assignment9/core/networking/network_constants.dart';
 import 'package:logger/logger.dart';
@@ -21,7 +22,7 @@ class NetworkService {
 
     _dio = Dio(baseOptions);
     _logger = Logger();
-    initInterceptors(); // Initialize interceptors
+    initInterceptors();
   }
 
   void initInterceptors() {
@@ -34,37 +35,33 @@ class NetworkService {
 
   dynamic onRequest(RequestOptions requestOptions, handler) {
     _logger.i(
-      '======> REQUEST[${requestOptions.method}] => PATH: ${'${NetworkConstants.baseUrl}/${requestOptions.path}'}\n'
-      '- REQUEST VALUES: ${requestOptions.queryParameters}\n'
-      '- HEADERS: ${requestOptions.headers} \n'
-      '- DATA: ${requestOptions.data.toString()}',
+      'Request: ${requestOptions.method} Path: ${'${NetworkConstants.baseUrl}/${requestOptions.path}'}\n'
+      'Data: ${requestOptions.data}',
     );
     return handler.next(requestOptions);
   }
 
   dynamic onResponse(Response response, handler) {
     _logger.i(
-      '<====== RESPONSE[${response.requestOptions.method}] PATH: ${response.requestOptions.path}\n'
-      '- Status Code: [${response.statusCode}]\n'
-      '- DATA: ${response.data}',
+      'Response: ${response.requestOptions.method} Path: ${response.requestOptions.path}\n'
+      'Status Code: ${response.statusCode}\n'
+      'Data: ${response.data}',
     );
     return handler.next(response);
   }
 
   dynamic onError(DioException err, handler) {
     _logger.e(
-      '<====== Error[${err.response?.requestOptions.method}] PATH: ${err.response?.requestOptions.path}\n'
-      '- Status Code: [${err.response?.statusCode}]\n'
-      '- MESSAGE: ${err.response?.statusMessage}',
+      'Error: ${err.response?.requestOptions.method} Path: ${err.response?.requestOptions.path}\n'
+      'Status Code: ${err.response?.statusCode}\n'
+      'Message: ${err.response?.statusMessage}',
     );
     return handler.next(err);
   }
 
-  // request method that handles GET & POST
   Future<Either<Failure, Response<dynamic>>> request(
     String endpoint, {
     required Method method,
-    dynamic data,
     Map<String, dynamic>? queryParams,
   }) async {
     Response response;
@@ -74,27 +71,24 @@ class NetworkService {
         case Method.get:
           response = await _dio.get(endpoint, queryParameters: queryParams);
           break;
-        // case Method.post:
-        //   response = await _dio.post(endpoint, data: data);
-        //   break;
       }
 
-      // Handle status codes
       if (response.statusCode != null) {
         if (response.statusCode! >= 200 && response.statusCode! < 300) {
-          return Right(response); // Successful response
+          return Right(response);
         } else if (response.statusCode! >= 400 && response.statusCode! < 500) {
-          return Left(
-              ServiceFailure(message: 'Client error: ${response.statusCode}'));
+          return Left(ServiceFailure(
+              message: '${TextConstants.clientError} ${response.statusCode}'));
         } else if (response.statusCode! >= 500 && response.statusCode! < 600) {
-          return Left(
-              ServiceFailure(message: 'Server error: ${response.statusCode}'));
+          return Left(ServiceFailure(
+              message: '${TextConstants.serverError} ${response.statusCode}'));
         } else {
           return Left(ServiceFailure(
-              message: 'Unexpected error: ${response.statusCode}'));
+              message:
+                  '${TextConstants.unexpectedError} ${response.statusCode}'));
         }
       } else {
-        return Left(ServiceFailure(message: 'No status code received'));
+        return Left(ServiceFailure(message: TextConstants.noStatusCode));
       }
     } catch (e) {
       return Left(UnexpectedFailure());

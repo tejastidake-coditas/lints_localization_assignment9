@@ -17,4 +17,3 @@ class SearchProductsEvent extends ProductListingEvent {
 
   List<Object?> get props => [query];
 }
-

@@ -4,7 +4,6 @@ import 'package:lints_localization_assignment9/core/constants/color_constants.da
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/features/profile/presentation/widgets/profile_bottom_row.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
@@ -21,7 +20,10 @@ class ProfileDetails extends StatelessWidget {
                 gradient: RadialGradient(
                   center: Alignment(0, -0.15),
                   radius: 0.8,
-                  colors: [Color(0xFFFF2A9D), Color(0xFFEF2A39)],
+                  colors: [
+                    ColorConstants.lightFirstGradient,
+                    ColorConstants.darkFirstGradient
+                  ],
                 ),
               ),
             ),
@@ -32,7 +34,7 @@ class ProfileDetails extends StatelessWidget {
                 TextConstants.splashScreenBurger1,
                 height: 196,
                 width: 196,
-                color: Colors.white.withValues(alpha: 0.16),
+                color: ColorConstants.white.withValues(alpha: 0.16),
                 colorBlendMode: BlendMode.modulate,
               ),
             ),
@@ -43,7 +45,7 @@ class ProfileDetails extends StatelessWidget {
                 TextConstants.splashScreenBurger2,
                 height: 196,
                 width: 196,
-                color: Colors.white.withValues(alpha: 0.16),
+                color: ColorConstants.white.withValues(alpha: 0.16),
                 colorBlendMode: BlendMode.modulate,
               ),
             ),
@@ -55,15 +57,16 @@ class ProfileDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => context.router.pop(),
                     child: Image.asset(
-                      'assets/images/arrow_left.png',
+                      TextConstants.arrowLeftIcon,
                       color: ColorConstants.white,
                       width: 28,
                       height: 28,
                     ),
                   ),
-                  const Icon(Icons.settings, color: Colors.white, size: 24),
+                  const Icon(Icons.settings,
+                      color: ColorConstants.white, size: 24),
                 ],
               ),
             ),
@@ -72,7 +75,7 @@ class ProfileDetails extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.only(top: 52),
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: ColorConstants.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
                 ),
                 child: Padding(
@@ -80,7 +83,7 @@ class ProfileDetails extends StatelessWidget {
                   child: ListView(
                     children: [
                       TextFormField(
-                        initialValue: 'Sophia Patel',
+                        initialValue: TextConstants.initialNameValue,
                         style: StyleConstants.profileInputTextStyle,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
@@ -95,7 +98,7 @@ class ProfileDetails extends StatelessWidget {
                       const SizedBox(height: 38),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        initialValue: 'sophiapatel@gmail.com',
+                        initialValue: TextConstants.initialEmailValue,
                         style: StyleConstants.profileInputTextStyle,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
@@ -109,12 +112,13 @@ class ProfileDetails extends StatelessWidget {
                       ),
                       const SizedBox(height: 38),
                       TextFormField(
-                        initialValue: '123 Main St Apartment 4A,New York, NY',
+                        initialValue: TextConstants.initialAddressValue,
                         style: StyleConstants.profileInputTextStyle,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: AppLocalizations.of(context)!.labelDeliveryAddress,
+                          labelText: AppLocalizations.of(context)!
+                              .labelDeliveryAddress,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -125,12 +129,14 @@ class ProfileDetails extends StatelessWidget {
                       TextFormField(
                         obscureText: true,
                         obscuringCharacter: '●',
-                        initialValue: AppLocalizations.of(context)!.labelPassword,
+                        initialValue:
+                            AppLocalizations.of(context)!.labelPassword,
                         style: StyleConstants.profileInputTextStyle,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: AppLocalizations.of(context)!.labelPassword,
+                          labelText:
+                              AppLocalizations.of(context)!.labelPassword,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -215,7 +221,7 @@ class ProfileDetails extends StatelessWidget {
                 height: 139,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.red, width: 4),
+                  border: Border.all(color: ColorConstants.red, width: 4),
                   image: const DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(TextConstants.defaultProfileImageText),

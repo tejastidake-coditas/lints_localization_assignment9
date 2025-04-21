@@ -8,11 +8,12 @@ class IncrementDecrementWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => IconButton(
-      style: IconButton.styleFrom(
-        backgroundColor: ColorConstants.red,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      ),
-      onPressed: () {},
-      icon: Icon(icon, color: ColorConstants.white),
-    );
+        style: IconButton.styleFrom(
+          backgroundColor: ColorConstants.red,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        ),
+        onPressed: () {},
+        icon: Icon(icon, color: ColorConstants.white),
+      );
 }

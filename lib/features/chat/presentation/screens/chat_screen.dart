@@ -8,16 +8,16 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(
-        title: const Text(TextConstants.chat),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(TextConstants.chatScreen),
-          ],
+        appBar: AppBar(
+          title: const Text(TextConstants.chat),
         ),
-      ),
-    );
+        body: const Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(TextConstants.chatScreen),
+            ],
+          ),
+        ),
+      );
 }

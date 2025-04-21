@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
-import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dart';
+import 'package:lints_localization_assignment9/features/profile/presentation/screens/profile_details.dart';
 import 'package:lints_localization_assignment9/main.dart';
 
 @RoutePage()
@@ -23,7 +23,7 @@ class _ProfileOptionsState extends State<ProfileOptions> {
     final loc = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(loc.editProfile)), // Example
+      appBar: AppBar(title: Text(loc.editProfile)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -33,15 +33,20 @@ class _ProfileOptionsState extends State<ProfileOptions> {
               AppLocalizations.of(context)!.chooseLanguage,
               style: StyleConstants.info.copyWith(color: ColorConstants.black),
             ),
-            _buildLangOption("English", const Locale('en')),
-            _buildLangOption("हिन्दी", const Locale('hi')),
-            _buildLangOption("Español", const Locale('es')),
+            _buildLangOption(TextConstants.english, const Locale('en')),
+            _buildLangOption(TextConstants.hindi, const Locale('hi')),
+            _buildLangOption(TextConstants.spanish, const Locale('es')),
             const Divider(
               height: 32,
             ),
             GestureDetector(
               onTap: () {
-                context.pushRoute(const ProfileDetailsRoute());
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ProfileDetails(),
+                  ),
+                );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,7 +77,7 @@ class _ProfileOptionsState extends State<ProfileOptions> {
             setState(() {
               _selectedLocale = value;
             });
-            MyApp.setLocale(context, value); // 🔥 CHANGE LANGUAGE
+            MyApp.setLocale(context, value);
           }
         },
       );

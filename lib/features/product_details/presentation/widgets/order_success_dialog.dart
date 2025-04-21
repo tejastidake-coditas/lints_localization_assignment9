@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
@@ -58,7 +59,7 @@ class OrderSuccessDialog extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context); //use auto routes
+                        context.router.pop();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConstants.red,

@@ -16,7 +16,6 @@ class ProductCardTile extends StatelessWidget {
   });
 
   void _handleTap(BuildContext context) {
-
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -29,54 +28,54 @@ class ProductCardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-      onTap: () => _handleTap(context),
-      child: Card(
-        elevation: 2,
-        color: ColorConstants.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                  child: Center(
-                child: Image.network(
-                  fit: BoxFit.cover,
-                  height: 120,
-                  product.image,
-                  errorBuilder: (context, error, stackTrace) =>
-                      TextConstants.brokenIcon,
+        onTap: () => _handleTap(context),
+        child: Card(
+          elevation: 2,
+          color: ColorConstants.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                    child: Center(
+                  child: Image.network(
+                    fit: BoxFit.cover,
+                    height: 120,
+                    product.image,
+                    errorBuilder: (context, error, stackTrace) =>
+                        TextConstants.brokenIcon,
+                  ),
+                )),
+                const SizedBox(
+                  height: 10,
                 ),
-              )),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                product.title,
-                style: StyleConstants.productCardTileTitle,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              Text(
-                product.category,
-                style: StyleConstants.productCardTileCategory,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  RatingWidget(screen: TextConstants.listing),
-                  FavoriteToggleButton(),
-                ],
-              )
-            ],
+                Text(
+                  product.title,
+                  style: StyleConstants.productCardTileTitle,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                Text(
+                  product.category,
+                  style: StyleConstants.productCardTileCategory,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RatingWidget(screen: TextConstants.listing),
+                    FavoriteToggleButton(),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
 }

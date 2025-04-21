@@ -23,11 +23,11 @@ class ProductDetailsDataSourceImplementation
     );
 
     return result.fold(
-          (failure) => Left(failure), // Handle errors here
-          (response) {
+      (failure) => Left(failure),
+      (response) {
         final data = response.data['product'];
         final product = ProductDetailsModel.fromJson(data);
-        return Right(product); // Return the product if successful
+        return Right(product);
       },
     );
   }

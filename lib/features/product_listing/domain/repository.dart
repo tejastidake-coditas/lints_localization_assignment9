@@ -4,7 +4,4 @@ import 'package:lints_localization_assignment9/features/product_listing/domain/e
 
 abstract interface class ProductsRepository {
   Future<Either<Failure, List<ProductListingEntity>>> getAllProducts();
-
-  // Future<Either<Failure, List<ProductListingEntity>>> searchProducts(String query);
-
 }
