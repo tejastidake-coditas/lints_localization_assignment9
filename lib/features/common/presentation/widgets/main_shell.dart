@@ -11,31 +11,27 @@ class MainShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AutoTabsScaffold(
-      routes: [
-        ProductListScreenRoute(),
-        const ProfileOptionsRoute(),
-        const AddProductScreenRoute(),
-        const ChatScreenRoute(),
-        const FavoriteScreenRoute(),
-      ],
-      floatingActionButton: Builder(
-        builder: (context) {
-          final tabsRouter = AutoTabsRouter.of(context);
-          return SizedBox( // can use padding instead
-            height: 64,
-            width: 64,
-            child: FloatingActionButton(
+        routes: [
+          ProductListScreenRoute(),
+          const ProfileOptionsRoute(),
+          const AddProductScreenRoute(),
+          const ChatScreenRoute(),
+          const FavoriteScreenRoute(),
+        ],
+        floatingActionButton: Builder(
+          builder: (context) {
+            final tabsRouter = AutoTabsRouter.of(context);
+            return FloatingActionButton(
               onPressed: () => tabsRouter.setActiveIndex(2),
               backgroundColor: ColorConstants.slidersButtonBackgroundColor,
               elevation: 6,
               shape: const CircleBorder(),
               child: Image.asset(TextConstants.addIcon),
-            ),
-          );
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBuilder: (_, tabsRouter) => BottomAppBar(
+            );
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBuilder: (_, tabsRouter) => BottomAppBar(
           color: ColorConstants.slidersButtonBackgroundColor,
           shape: const CircularNotchedRectangle(),
           notchMargin: 6,
@@ -44,12 +40,11 @@ class MainShell extends StatelessWidget {
             children: [
               BottomNavItem(tabsRouter: tabsRouter, index: 0),
               BottomNavItem(tabsRouter: tabsRouter, index: 1),
-              const SizedBox(width: 64), //
+              const SizedBox.shrink(),
               BottomNavItem(tabsRouter: tabsRouter, index: 3),
               BottomNavItem(tabsRouter: tabsRouter, index: 4),
             ],
           ),
         ),
-    );
+      );
 }
-

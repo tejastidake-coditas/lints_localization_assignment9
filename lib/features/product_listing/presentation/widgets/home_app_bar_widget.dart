@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lints_localization_assignment9/features/profile/presentation/screens/profile_details.dart';
 
 class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBarWidget({super.key});
@@ -12,13 +13,22 @@ class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             style: StyleConstants.appName),
         subtitle: Text(AppLocalizations.of(context)!.appTagLine,
             style: StyleConstants.appTagLine),
-        trailing: ClipRRect(
+        trailing: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const ProfileDetails()),
+            );
+          },
           borderRadius: BorderRadius.circular(14),
-          child: Image.network(
-            TextConstants.defaultProfileImageText,
-            height: 48,
-            width: 48,
-            fit: BoxFit.cover,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(14),
+            child: Image.network(
+              TextConstants.defaultProfileImageText,
+              height: 48,
+              width: 48,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       );

@@ -20,6 +20,12 @@ class ProductListScreen extends StatelessWidget {
 
   final TextEditingController _searchController = TextEditingController();
 
+  void _onCategoryTap(BuildContext context, String category) {
+    _searchController.clear();
+    FocusScope.of(context).unfocus();
+    context.read<ProductListingBloc>().add(FilterByCategory(category));
+  }
+
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context)!;
@@ -92,14 +98,8 @@ class ProductListScreen extends StatelessWidget {
                         return CategoryListTile(
                           title: categories[index],
                           isSelected: isSelected,
-                          onTap: () {
-                            _searchController.clear();
-
-                            FocusScope.of(context).unfocus();
-                            context
-                                .read<ProductListingBloc>()
-                                .add(FilterByCategory(categories[index]));
-                          },
+                          onTap: () =>
+                              _onCategoryTap(context, categories[index]),
                         );
                       },
                     ),

@@ -1,7 +1,7 @@
 import 'package:lints_localization_assignment9/features/product_details/domain/entity.dart';
 
 class ProductDetailsModel extends ProductDetailsEntity {
-  ProductDetailsModel({
+  const ProductDetailsModel({
     required super.id,
     required super.title,
     required super.image,

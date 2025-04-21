@@ -38,15 +38,20 @@ class ProductCardTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ClipRRect(
-                    child: Center(
-                  child: Image.network(
-                    fit: BoxFit.cover,
-                    height: 120,
-                    product.image,
-                    errorBuilder: (context, error, stackTrace) =>
-                        TextConstants.brokenIcon,
+                  child: Center(
+                    child: SizedBox(
+                      height: 120,
+                      child: Image.network(
+                        product.image,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Center(
+                          child: Icon(Icons.broken_image, size: 48),
+                        ),
+                      ),
+                    ),
                   ),
-                )),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
