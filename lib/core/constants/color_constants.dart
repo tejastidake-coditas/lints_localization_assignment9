@@ -6,6 +6,7 @@ class ColorConstants {
   static const transparent = Colors.transparent;
 
   static const miniColor = Color.fromRGBO(120, 118, 118, 1);
+  static const unselectedCategoryTileColor = Color.fromRGBO(243, 244, 246, 1);
   static const boldHeadingColor = Color.fromRGBO(18, 17, 17, 1);
   static const littleBoldColor = Color.fromRGBO(41, 37, 38, 1);
   static const searchHintColor = Color.fromRGBO(60, 47, 47, 1);
@@ -40,7 +41,7 @@ class ColorConstants {
   static const profileDividerColor = Color(0xFFE8E8E8);
   static const descriptionColor = Color(0xFF6A6A6A);
   static const spicyTextColor = Color(0xFF3C2F2F);
-  static const mildHotTextColor = Color(0xFF1CC019);
+  static const mildHotTextColor = Color(0xFF19AF16);
   static const lightFirstGradient = Color(0xFFFF2A9D);
   static const darkFirstGradient = Color(0xFFEF2A39);
   static const successDialogTitle = Color(0xFFEF2A39);

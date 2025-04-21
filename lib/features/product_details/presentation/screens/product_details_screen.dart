@@ -84,9 +84,11 @@ class ProductDetailsScreen extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                              spacing: 3,
+                          Expanded(
+                            child: Column(
+                              spacing: 6,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(AppLocalizations.of(context)!.spicy,
@@ -106,29 +108,31 @@ class ProductDetailsScreen extends StatelessWidget {
                                     ),
                                   ],
                                 )
-                              ]),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 98),
                           Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(AppLocalizations.of(context)!.portion,
-                                    style: StyleConstants.spicyTextStyle),
-                                Row(
-                                  children: [
-                                    const IncrementDecrementWidget(
-                                      icon: Icons.remove,
-                                    ),
-                                    const SizedBox(width: 15),
-                                    Text(
-                                      AppLocalizations.of(context)!.number,
-                                      style: StyleConstants.bodyText3,
-                                    ),
-                                    const SizedBox(width: 15),
-                                    const IncrementDecrementWidget(
-                                      icon: Icons.add,
-                                    ),
-                                  ],
-                                ),
-                              ])
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(AppLocalizations.of(context)!.portion,
+                                  style: StyleConstants.spicyTextStyle),
+                              Row(
+                                children: [
+                                  const IncrementDecrementWidget(
+                                      icon: Icons.remove),
+                                  const SizedBox(width: 15),
+                                  Text(
+                                    AppLocalizations.of(context)!.number,
+                                    style: StyleConstants.bodyText3,
+                                  ),
+                                  const SizedBox(width: 15),
+                                  const IncrementDecrementWidget(
+                                      icon: Icons.add),
+                                ],
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                       const SizedBox(

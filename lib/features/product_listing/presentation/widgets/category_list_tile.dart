@@ -23,7 +23,7 @@ class CategoryListTile extends StatelessWidget {
             decoration: BoxDecoration(
               color: isSelected
                   ? ColorConstants.slidersButtonBackgroundColor
-                  : ColorConstants.white,
+                  : ColorConstants.unselectedCategoryTileColor,
               borderRadius: BorderRadius.circular(20),
               boxShadow: isSelected
                   ? [

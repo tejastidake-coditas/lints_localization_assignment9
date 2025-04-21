@@ -10,6 +10,16 @@ class StyleConstants {
     height: 1.3,
     letterSpacing: 0,
   );
+
+  static TextStyle bodyText4 = const TextStyle(
+    fontFamily: 'Roboto',
+    color: ColorConstants.darkColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    height: 1.35,
+    letterSpacing: 0,
+  );
+
   static const priceStyle = TextStyle(
     fontSize: 16,
     color: Colors.green,
@@ -219,7 +229,7 @@ class StyleConstants {
 
   static const mildHot = TextStyle(
     fontSize: 12,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     height: 1.3,
     letterSpacing: 0,
     fontFamily: 'Roboto',
