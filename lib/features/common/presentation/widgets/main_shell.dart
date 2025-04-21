@@ -13,7 +13,7 @@ class MainShell extends StatelessWidget {
   Widget build(BuildContext context) => AutoTabsScaffold(
       routes: [
         ProductListScreenRoute(),
-        const ProfileScreenRoute(),
+        const ProfileOptionsRoute(),
         const AddProductScreenRoute(),
         const ChatScreenRoute(),
         const FavoriteScreenRoute(),

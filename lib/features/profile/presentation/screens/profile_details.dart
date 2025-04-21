@@ -8,8 +8,8 @@ import 'package:lints_localization_assignment9/features/profile/presentation/wid
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileDetails extends StatelessWidget {
+  const ProfileDetails({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(

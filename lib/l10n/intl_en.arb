@@ -33,6 +33,8 @@
   "appTagLine": "Order your favourite food!",
   "signOut": "assets/images/sign-out.png",
   "logOut": "Log out",
+  "chooseLanguage": "Choose Language",
+  "profileDetails": "Profile Details",
   "favorites": "Favorite",
   "noProductAvailable": "No product details available.",
   "hot": "Hot",

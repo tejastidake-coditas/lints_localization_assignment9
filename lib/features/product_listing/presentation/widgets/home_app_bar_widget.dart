@@ -8,7 +8,8 @@ class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) => ListTile(
-        title: Text(AppLocalizations.of(context)!.appName, style: StyleConstants.appName),
+        title: Text(AppLocalizations.of(context)!.appName,
+            style: StyleConstants.appName),
         subtitle: Text(AppLocalizations.of(context)!.appTagLine,
             style: StyleConstants.appTagLine),
         trailing: ClipRRect(
@@ -21,6 +22,7 @@ class HomeAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       );
+
   @override
   Size get preferredSize => const Size.fromHeight(80);
 }

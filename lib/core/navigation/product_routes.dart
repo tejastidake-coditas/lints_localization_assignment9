@@ -4,7 +4,6 @@ import 'package:lints_localization_assignment9/core/navigation/product_details_r
 
 final AutoRoute productRoute = AutoRoute(
   page: ProductListScreenRoute.page,
-  initial: true, // TODO: only one
   path: 'home',
   children: [
     productDetailsRoute,

@@ -6,31 +6,46 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   Injector.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  final _appRouter = AppRouter();
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
-  MyApp({super.key});
+  static void setLocale(BuildContext context, Locale newLocale) {
+    final _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(newLocale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _appRouter = AppRouter();
+  Locale _locale = const Locale('en'); // Default language
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: _appRouter.config(),
-
-        // 👇 Localization added below
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en'),
-          Locale('hi'),
-          Locale('es'),
-        ],
-        locale: const Locale('en'),
-      );
+    debugShowCheckedModeBanner: false,
+    routerConfig: _appRouter.config(),
+    locale: _locale, // 👈 Set dynamically here
+    localizationsDelegates: const [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    supportedLocales: const [
+      Locale('en'),
+      Locale('hi'),
+      Locale('es'),
+    ],
+  );
 }

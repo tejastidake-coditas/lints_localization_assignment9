@@ -84,5 +84,5 @@ class TextConstants {
   static const String smallRight = 'assets/images/small-right.png';
 
   static const String defaultProfileImageText =
-      'https://s3-alpha-sig.figma.com/img/1406/be1b/b3e531935af8e5cf6bc014fde3dbc82c?Expires=1745193600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oyiK0bvqCENvQr~c-abOD2gN~SpwytNIMoUAFTNUpguygeDSV4lcMhc7cs1ZkY3N9Xn3rVGXl5JPYDbx94ROb7Y0lawrXc7Y-~eIyWZ6ycDgFC9bPWONVDIL8sNY~uC3eYM~QMZWW3nJUO1fu0iWtOW~-dYSjLI16OWvpGGeNV4cN8svLzzjup2oLCB0Upm06w2crlHZJjvER0YLBLK2~6NBJokgzLIWzeJynGNcYRaaBSQCDBcT2Xsp6z0m0KYmoSkx8GJzmtlkkpPo~JkiKLh1QEW9wITbVLPhshtUY-QevPWO9IvgC8ibFlY~vgzuDCGX-Ej5-0tSNtWQw7ub2Q__';
+      'https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D';
 }
