@@ -4,14 +4,13 @@ import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dar
 import 'package:lints_localization_assignment9/core/navigation/chat_route.dart';
 import 'package:lints_localization_assignment9/core/navigation/favorite_route.dart';
 import 'package:lints_localization_assignment9/core/navigation/product_routes.dart';
-import 'package:lints_localization_assignment9/core/navigation/profile_routes.dart';
+import 'package:lints_localization_assignment9/core/navigation/profile_options_routes.dart';
 
 final AutoRoute mainShellRoute = AutoRoute(
   page: MainShellRoute.page,
-  path: '/main-route',
   children: [
     productRoute,
-    profileRoute,
+    profileOptions,
     addProductRoute,
     chatRoute,
     favoriteRoute,

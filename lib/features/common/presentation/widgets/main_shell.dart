@@ -34,7 +34,7 @@ class MainShell extends StatelessWidget {
         bottomNavigationBuilder: (_, tabsRouter) => BottomAppBar(
           color: ColorConstants.slidersButtonBackgroundColor,
           shape: const CircularNotchedRectangle(),
-          notchMargin: 6,
+          notchMargin: 8,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

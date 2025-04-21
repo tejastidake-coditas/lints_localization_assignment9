@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
-import 'package:lints_localization_assignment9/features/profile/presentation/screens/profile_details.dart';
+import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dart';
 import 'package:lints_localization_assignment9/main.dart';
 
 @RoutePage()
@@ -17,6 +17,10 @@ class ProfileOptions extends StatefulWidget {
 
 class _ProfileOptionsState extends State<ProfileOptions> {
   Locale _selectedLocale = const Locale('en');
+
+  void _openProfileDetails(BuildContext context) {
+    context.pushRoute(const ProfileDetailsRoute());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +44,7 @@ class _ProfileOptionsState extends State<ProfileOptions> {
               height: 32,
             ),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ProfileDetails(),
-                  ),
-                );
-              },
+              onTap: () => _openProfileDetails(context),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
+import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dart';
 import 'package:lints_localization_assignment9/features/common/presentation/widgets/rating_widget.dart';
-import 'package:lints_localization_assignment9/features/product_details/presentation/screens/product_details_screen.dart';
 import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/widgets/favorite_toggle_button.dart';
 
@@ -15,20 +16,13 @@ class ProductCardTile extends StatelessWidget {
     required this.product,
   });
 
-  void _handleTap(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => ProductDetailsScreen(
-          productId: product.id,
-        ),
-      ),
-    );
+  void _handleTap(BuildContext context, int productId) {
+    context.pushRoute(ProductDetailsScreenRoute(productId: productId));
   }
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-        onTap: () => _handleTap(context),
+        onTap: () => _handleTap(context, product.id),
         child: Card(
           elevation: 2,
           color: ColorConstants.white,

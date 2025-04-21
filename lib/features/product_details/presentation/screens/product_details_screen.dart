@@ -42,9 +42,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         leading: IconButton(
-                            onPressed: () {
-                              context.router.pop();
-                            },
+                            onPressed: () => context.router.pop(),
                             icon: Image.asset(
                               TextConstants.leftBlackArrow,
                               width: 28,

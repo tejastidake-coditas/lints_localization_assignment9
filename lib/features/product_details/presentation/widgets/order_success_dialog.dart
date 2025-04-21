@@ -58,9 +58,7 @@ class OrderSuccessDialog extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
-                        context.router.pop();
-                      },
+                      onPressed: () => context.router.pop(),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConstants.red,
                         padding: const EdgeInsets.symmetric(vertical: 14),
