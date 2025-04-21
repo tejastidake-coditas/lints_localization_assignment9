@@ -21,37 +21,31 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # ✅ General Clean Code
-    always_declare_return_types: true          # Forces you to write return types (clean & readable)
-    avoid_print: true                          # Use logging instead of print() in production
-    avoid_unnecessary_containers: true         # Flags empty containers that do nothing
-    avoid_empty_else: true                     # Empty else blocks usually indicate missed logic
-    prefer_final_fields: true                  # Makes fields immutable unless they *need* to be mutable
-    prefer_final_locals: true                  # Like above, but for local vars — good habit
+    always_declare_return_types: true
+    avoid_print: true
+    avoid_unnecessary_containers: true
+    avoid_empty_else: true
+    prefer_final_fields: true
+    prefer_final_locals: true
 
-    # ✅ Readability & Maintainability
-    annotate_overrides: true                   # Forces you to mark methods that override something
-    avoid_returning_null: true                 # Instead of returning `null`, use Optionals or meaningful fallback
-    prefer_const_constructors: true            # Better for performance (especially in build methods)
-    prefer_const_literals_to_create_immutables: true # More const = better performance
-    unnecessary_this: true                     # Makes code cleaner when `this` is not required
+    annotate_overrides: true
+    avoid_returning_null: true
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    unnecessary_this: true
 
-    # ✅ Code Safety
-    no_logic_in_create_state: true             # Flutter specific — state logic should go in `initState`
-    use_key_in_widget_constructors: true       # Prevents widget rebuild issues
-    avoid_init_to_null: true                   # Dart already initializes variables to null
+    no_logic_in_create_state: true
+    use_key_in_widget_constructors: true
 
-    # ✅ Dart-specific
-    avoid_types_on_closure_parameters: false   # Set to `true` if you want cleaner lambdas
-    use_function_type_syntax_for_parameters: true # Cleans up typedefs
-    curly_braces_in_flow_control_structures: true # Forces `{}` even for 1-liners in if/else
+    avoid_types_on_closure_parameters: false
+    use_function_type_syntax_for_parameters: true
+    curly_braces_in_flow_control_structures: true
 
-    # ✅ Consistency & Best Practices
-    constant_identifier_names: true            # For consts like `MAX_SIZE`
-    prefer_single_quotes: true                 # Cleaner and more consistent
-    unnecessary_new: true                      # `new` keyword is dead in Dart 2
-    avoid_positional_boolean_parameters: false # Optional: use named params for readability
-    prefer_expression_function_bodies: true    # Makes small functions sexier
+    constant_identifier_names: true
+    prefer_single_quotes: true
+    unnecessary_new: true
+    avoid_positional_boolean_parameters: false
+    prefer_expression_function_bodies: true
 
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
