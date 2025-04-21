@@ -12,6 +12,7 @@ import 'package:lints_localization_assignment9/features/product_details/presenta
 import 'package:lints_localization_assignment9/features/product_details/presentation/widgets/increment_decrement_widget.dart';
 import 'package:lints_localization_assignment9/features/product_details/presentation/widgets/order_success_dialog.dart';
 import 'package:lints_localization_assignment9/features/product_details/presentation/widgets/spicy_slider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ProductDetailsScreen extends StatelessWidget {
@@ -60,11 +61,11 @@ class ProductDetailsScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const Row(
+                      Row(
                         children: [
-                          RatingWidget(screen: TextConstants.detailsText),
+                          const RatingWidget(screen: TextConstants.detailsText),
                           Text(
-                            TextConstants.durationText,
+                            AppLocalizations.of(context)!.durationText,
                             style: StyleConstants.minsDurationTextStyle,
                           ),
                         ],
@@ -77,26 +78,26 @@ class ProductDetailsScreen extends StatelessWidget {
                       const SizedBox(
                         height: 28,
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                               spacing: 3,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(TextConstants.spicy,
+                                Text(AppLocalizations.of(context)!.spicy,
                                     style: StyleConstants.spicyTextStyle),
-                                SpicySlider(),
+                                const SpicySlider(),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      TextConstants.hot,
+                                      AppLocalizations.of(context)!.hot,
                                       style: StyleConstants.mildHot,
                                     ),
                                     Text(
-                                      TextConstants.hot,
+                                      AppLocalizations.of(context)!.mild,
                                       style: StyleConstants.mildHot,
                                     ),
                                   ],
@@ -105,20 +106,20 @@ class ProductDetailsScreen extends StatelessWidget {
                           Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(TextConstants.portion,
+                                Text(AppLocalizations.of(context)!.portion,
                                     style: StyleConstants.spicyTextStyle),
                                 Row(
                                   children: [
-                                    IncrementDecrementWidget(
+                                    const IncrementDecrementWidget(
                                       icon: Icons.remove,
                                     ),
-                                    SizedBox(width: 15),
+                                    const SizedBox(width: 15),
                                     Text(
-                                      TextConstants.number,
+                                      AppLocalizations.of(context)!.number,
                                       style: StyleConstants.bodyText3,
                                     ),
-                                    SizedBox(width: 15),
-                                    IncrementDecrementWidget(
+                                    const SizedBox(width: 15),
+                                    const IncrementDecrementWidget(
                                       icon: Icons.add,
                                     ),
                                   ],
@@ -165,8 +166,8 @@ class ProductDetailsScreen extends StatelessWidget {
                                 ),
                                 elevation: 4,
                               ),
-                              child: const Text(
-                                TextConstants.orderNow,
+                              child: Text(
+                                AppLocalizations.of(context)!.orderNow,
                                 style: StyleConstants.orderNowStyle,
                               )),
                         ],

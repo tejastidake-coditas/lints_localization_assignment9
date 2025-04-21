@@ -5,6 +5,8 @@ import 'package:lints_localization_assignment9/core/constants/style_constants.da
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/features/profile/presentation/widgets/profile_bottom_row.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -83,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: 'Name',
+                          labelText: AppLocalizations.of(context)!.labelName,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -98,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: 'Email',
+                          labelText: AppLocalizations.of(context)!.labelEmail,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -112,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: TextConstants.deliveryAddress,
+                          labelText: AppLocalizations.of(context)!.labelDeliveryAddress,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -123,12 +125,12 @@ class ProfileScreen extends StatelessWidget {
                       TextFormField(
                         obscureText: true,
                         obscuringCharacter: '●',
-                        initialValue: TextConstants.password,
+                        initialValue: AppLocalizations.of(context)!.labelPassword,
                         style: StyleConstants.profileInputTextStyle,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 34, vertical: 22),
-                          labelText: 'Password',
+                          labelText: AppLocalizations.of(context)!.labelPassword,
                           labelStyle: StyleConstants.hintTextStyle,
                           border: StyleConstants.outlineInputStyle,
                           enabledBorder: StyleConstants.outlineInputStyle,
@@ -151,8 +153,8 @@ class ProfileScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  TextConstants.paymentDetails,
+                                Text(
+                                  AppLocalizations.of(context)!.paymentDetails,
                                   style: StyleConstants.info,
                                 ),
                                 Image.asset(
@@ -163,8 +165,8 @@ class ProfileScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  TextConstants.orderHistory,
+                                Text(
+                                  AppLocalizations.of(context)!.orderHistory,
                                   style: StyleConstants.info,
                                 ),
                                 Image.asset(
@@ -183,13 +185,13 @@ class ProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ProfileBottomRow(
-                            label: TextConstants.editProfile,
+                            label: AppLocalizations.of(context)!.editProfile,
                             icon: Image.asset(TextConstants.editIconPng),
                             isFilled: true,
                             backgroundColor: ColorConstants.darkColor,
                           ),
                           ProfileBottomRow(
-                            label: TextConstants.logout,
+                            label: AppLocalizations.of(context)!.logOut,
                             icon: Image.asset(TextConstants.signOut),
                             isFilled: false,
                             borderColor: ColorConstants.red,

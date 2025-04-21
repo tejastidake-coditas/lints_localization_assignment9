@@ -12,18 +12,31 @@ import 'package:lints_localization_assignment9/features/product_listing/presenta
 import 'package:lints_localization_assignment9/features/product_listing/presentation/bloc/product_listing_state.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/widgets/category_list_tile.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/widgets/home_app_bar_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ProductListScreen extends StatelessWidget {
   ProductListScreen({super.key});
 
-  final List<String> categories = ['All', 'Audio', 'Gaming', 'Mobile', 'Tv'];
+  // final List<String> categories = ['All', 'Audio', 'Gaming', 'Mobile', 'Tv'];
   final TextEditingController _searchController = TextEditingController(); // 👈 ADD THIS
 
   @override
-  Widget build(BuildContext context) => BlocProvider<ProductListingBloc>(
+  Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
+    final List<String> categories = [
+      local.all,
+      local.audio,
+      local.gaming,
+      local.mobile,
+      local.tv,
+    ];
+
+    return BlocProvider<ProductListingBloc>(
       create: (_) =>
-      injectorInstance<ProductListingBloc>()..add(GetAllProductsEvent()),
+      injectorInstance<ProductListingBloc>()
+        ..add(GetAllProductsEvent()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: ColorConstants.backgroundColor,
@@ -39,9 +52,10 @@ class ProductListScreen extends StatelessWidget {
                       Expanded(
                         child: ProductSearchBar(
                           controller: _searchController, // 👈 PASS IT
-                          onChanged: (query) => context
-                              .read<ProductListingBloc>()
-                              .add(SearchProductsEvent(query.trim())),
+                          onChanged: (query) =>
+                              context
+                                  .read<ProductListingBloc>()
+                                  .add(SearchProductsEvent(query.trim())),
                         ),
                       ),
                       const SizedBox(width: 14),
@@ -71,28 +85,29 @@ class ProductListScreen extends StatelessWidget {
                 SizedBox(
                   height: 68,
                   child: BlocBuilder<ProductListingBloc, ProductListingState>(
-                    builder: (context, state) => ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: categories.length,
-                        separatorBuilder: (_, __) => const SizedBox(width: 6),
-                        itemBuilder: (context, index) {
-                          final isSelected = state is ProductListingLoaded &&
-                              state.selectedCategory.toLowerCase() ==
-                                  categories[index].toLowerCase();
+                    builder: (context, state) =>
+                        ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: categories.length,
+                          separatorBuilder: (_, __) => const SizedBox(width: 6),
+                          itemBuilder: (context, index) {
+                            final isSelected = state is ProductListingLoaded &&
+                                state.selectedCategory.toLowerCase() ==
+                                    categories[index].toLowerCase();
 
-                          return CategoryListTile(
-                            title: categories[index],
-                            isSelected: isSelected,
-                            onTap: () {
-                              _searchController.clear(); // 👈 CLEAR THE TEXT
+                            return CategoryListTile(
+                              title: categories[index],
+                              isSelected: isSelected,
+                              onTap: () {
+                                _searchController.clear(); // 👈 CLEAR THE TEXT
 
-                              FocusScope.of(context).unfocus();
-                              context.read<ProductListingBloc>().add(
-                                  FilterByCategory(categories[index]));
-                            },
-                          );
-                        },
-                      ),
+                                FocusScope.of(context).unfocus();
+                                context.read<ProductListingBloc>().add(
+                                    FilterByCategory(categories[index]));
+                              },
+                            );
+                          },
+                        ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -121,4 +136,5 @@ class ProductListScreen extends StatelessWidget {
         ),
       ),
     );
+  }
 }

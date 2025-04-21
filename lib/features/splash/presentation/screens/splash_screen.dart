@@ -4,6 +4,7 @@ import 'package:lints_localization_assignment9/core/constants/color_constants.da
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class SplashScreen extends StatefulWidget {
@@ -37,10 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           child: Stack(
             children: [
-              const Center(
+              Center(
                 heightFactor: 10,
                 child: Text(
-                  TextConstants.splashScreenHeadline,
+                  AppLocalizations.of(context)!.appName,
                   style: StyleConstants.splashScreenHeadline,
                 ),
               ),

@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class RatingWidget extends StatelessWidget {
   final String screen;
 
@@ -10,19 +12,21 @@ class RatingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SvgPicture.asset(
-          TextConstants.starIcon,
-          width: 15,
-          height: 15,
-          fit: BoxFit.cover,
-        ),
-        const SizedBox(width: 4),
-        Text(
-          TextConstants.ratingText,
-          style: (screen == TextConstants.listing) ? StyleConstants.listingRatingStyle : StyleConstants.deatilsRatingStyle,
-        )
-      ],
-    );
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            TextConstants.starIcon,
+            width: 15,
+            height: 15,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            AppLocalizations.of(context)!.ratingText,
+            style: (screen == TextConstants.listing)
+                ? StyleConstants.listingRatingStyle
+                : StyleConstants.deatilsRatingStyle,
+          )
+        ],
+      );
 }

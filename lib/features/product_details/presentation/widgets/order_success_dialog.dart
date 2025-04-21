@@ -3,6 +3,8 @@ import 'package:lints_localization_assignment9/core/constants/color_constants.da
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class OrderSuccessDialog extends StatelessWidget {
   const OrderSuccessDialog({super.key});
 
@@ -41,13 +43,13 @@ class OrderSuccessDialog extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 28),
-                const Text(
-                  TextConstants.successTitle,
+                Text(
+                   AppLocalizations.of(context)!.successTitle,
                   style: StyleConstants.successTitle,
                 ),
                 const SizedBox(height: 12),
-                const Text(
-                  TextConstants.successMessage,
+                Text(
+                  AppLocalizations.of(context)!.successMessage,
                   textAlign: TextAlign.center,
                   style: StyleConstants.successMessage,
                 ),

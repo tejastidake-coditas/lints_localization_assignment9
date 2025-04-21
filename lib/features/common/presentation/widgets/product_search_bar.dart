@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lints_localization_assignment9/core/constants/color_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/style_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
@@ -69,7 +70,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
         controller: widget.controller,
         style: StyleConstants.searchHintStyle,
         decoration: InputDecoration(
-          hintText: TextConstants.searchBarHintText,
+          hintText: AppLocalizations.of(context)!.searchBarHintText,
           hintStyle: StyleConstants.searchHintStyle,
           contentPadding: const EdgeInsets.symmetric(vertical: 18),
           border: InputBorder.none,
