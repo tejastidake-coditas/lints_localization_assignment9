@@ -36,13 +36,9 @@ class BottomNavItem extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           if (isSelected)
-            Container(
-              width: 4,
-              height: 4,
-              decoration: const BoxDecoration(
-                color: ColorConstants.white,
-                shape: BoxShape.circle,
-              ),
+            const CircleAvatar(
+              radius: 2,
+              backgroundColor: ColorConstants.white,
             )
           else
             const SizedBox(height: 8),

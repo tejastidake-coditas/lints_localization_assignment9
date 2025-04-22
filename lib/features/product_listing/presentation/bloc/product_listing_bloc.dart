@@ -1,13 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/usecases.dart';
+import 'package:lints_localization_assignment9/features/product_listing/domain/entities/product_listing_entity.dart';
+import 'package:lints_localization_assignment9/features/product_listing/domain/usecases/products_listing_usecases.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/bloc/product_listing_event.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/bloc/product_listing_state.dart';
 
 class ProductListingBloc
     extends Bloc<ProductListingEvent, ProductListingState> {
-  final ProductsUseCases productsUseCases;
+  final ProductsListingUseCases productsUseCases;
   List<ProductListingEntity> _allProducts = [];
   String _selectedCategory = TextConstants.all;
 

@@ -37,13 +37,10 @@ class MainShell extends StatelessWidget {
           notchMargin: 8,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              BottomNavItem(tabsRouter: tabsRouter, index: 0),
-              BottomNavItem(tabsRouter: tabsRouter, index: 1),
-              const SizedBox.shrink(),
-              BottomNavItem(tabsRouter: tabsRouter, index: 3),
-              BottomNavItem(tabsRouter: tabsRouter, index: 4),
-            ],
+            children: List.generate(5, (index) {
+              if (index == 2) return const SizedBox.shrink();
+              return BottomNavItem(tabsRouter: tabsRouter, index: index);
+            }),
           ),
         ),
       );

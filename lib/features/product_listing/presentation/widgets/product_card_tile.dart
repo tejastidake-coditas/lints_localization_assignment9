@@ -5,7 +5,7 @@ import 'package:lints_localization_assignment9/core/constants/style_constants.da
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/navigation/app_router.gr.dart';
 import 'package:lints_localization_assignment9/features/common/presentation/widgets/rating_widget.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
+import 'package:lints_localization_assignment9/features/product_listing/domain/entities/product_listing_entity.dart';
 import 'package:lints_localization_assignment9/features/product_listing/presentation/widgets/favorite_toggle_button.dart';
 
 class ProductCardTile extends StatelessWidget {

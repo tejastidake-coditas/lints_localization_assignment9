@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:lints_localization_assignment9/core/constants/failure_constants.dart';
+import 'package:lints_localization_assignment9/core/networking/failure_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
 import 'package:lints_localization_assignment9/core/enums/method_enum.dart';
 import 'package:lints_localization_assignment9/core/networking/network_constants.dart';

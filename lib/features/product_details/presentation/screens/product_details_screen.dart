@@ -22,7 +22,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider<ProductDetailsBloc>(
-        create: (_) => injectorInstance<ProductDetailsBloc>()
+        create: (_) => Injector.injectorInstance<ProductDetailsBloc>()
           ..add(GetProductDetailsEvent(productId)),
         child: Scaffold(
           backgroundColor: ColorConstants.backgroundColor,

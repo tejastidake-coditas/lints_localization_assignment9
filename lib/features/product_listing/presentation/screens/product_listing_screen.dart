@@ -39,8 +39,8 @@ class ProductListScreen extends StatelessWidget {
     ];
 
     return BlocProvider<ProductListingBloc>(
-      create: (_) =>
-          injectorInstance<ProductListingBloc>()..add(GetAllProductsEvent()),
+      create: (_) => Injector.injectorInstance<ProductListingBloc>()
+        ..add(GetAllProductsEvent()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: ColorConstants.backgroundColor,

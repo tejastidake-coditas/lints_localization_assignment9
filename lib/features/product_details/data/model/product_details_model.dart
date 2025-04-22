@@ -1,4 +1,4 @@
-import 'package:lints_localization_assignment9/features/product_details/domain/entity.dart';
+import 'package:lints_localization_assignment9/features/product_details/domain/entities/product_details_entity.dart';
 
 class ProductDetailsModel extends ProductDetailsEntity {
   const ProductDetailsModel({

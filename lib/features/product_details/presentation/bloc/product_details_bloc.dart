@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lints_localization_assignment9/features/product_details/domain/usecases.dart';
+import 'package:lints_localization_assignment9/features/product_details/domain/usecases/product_details_usecases.dart';
 import 'package:lints_localization_assignment9/features/product_details/presentation/bloc/product_details_event.dart';
 import 'package:lints_localization_assignment9/features/product_details/presentation/bloc/product_details_state.dart';
 

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:lints_localization_assignment9/features/product_listing/domain/entity.dart';
+import 'package:lints_localization_assignment9/features/product_listing/domain/entities/product_listing_entity.dart';
 
 sealed class ProductListingState extends Equatable {
   @override
