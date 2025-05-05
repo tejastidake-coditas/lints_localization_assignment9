@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:lints_localization_assignment9/core/networking/failure_constants.dart';
 import 'package:lints_localization_assignment9/core/constants/text_constants.dart';
-import 'package:lints_localization_assignment9/core/enums/method_enum.dart';
 import 'package:lints_localization_assignment9/core/networking/network_constants.dart';
+import 'package:lints_localization_assignment9/core/utils/enums/method_enum.dart';
 import 'package:logger/logger.dart';
+
+import 'failure_constants.dart';
 
 class NetworkService {
   late final Dio _dio;
@@ -58,6 +59,24 @@ class NetworkService {
     );
     return handler.next(err);
   }
+
+  // Future<void> getProducts(String endpoint) async {
+  //   try {
+  //     final response = await _dio.get(
+  //       endpoint,
+  //       // '/users?page=2',
+  //       // options: Options(headers: {'Authorization': 'xyzToken'}),
+  //       // queryParameters: {'category': 'xyzCategory'},
+  //       // data: {'email': 'gvishnu@gmail.com'},
+  //
+  //     );
+  //
+  //     print(response.data);
+  //     return response.data;
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   Future<Either<Failure, Response<dynamic>>> request(
     String endpoint, {
